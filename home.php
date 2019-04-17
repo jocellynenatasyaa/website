@@ -16,7 +16,7 @@
         <div class="container">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href=home.php">Home</a>
+                    <a href="home.php">Home</a>
                 </li>
                 <li>
                     <a href="cart.php">Cart</a>
