@@ -12,23 +12,11 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>
-                    <a href="cart.php">Cart</a>
-                </li>
-                <li>
-                    <a href="login.php">Login</a>
-                </li>
-                <li>
-                    <a href="checkout.php">Checkout</a>
-                </li>
-            </ul>
-        </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+        <img src="img/logo/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Bootstrap
+        </a>
     </nav>
 
     <!-- Content -->
