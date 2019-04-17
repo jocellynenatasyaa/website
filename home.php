@@ -11,16 +11,17 @@
     <title>Aphrodite</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        
+
     </style>
-    </head>
+</head>
 
 <body>
     <!-- Navbar -->
     <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img src="img/logo/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="img/logo/logo_white.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             aphrodite
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -43,35 +44,38 @@
             </div>
         </div>
 
-       
+
     </nav>
 
     <div id="carouselId" class="carousel slide mt-0" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselId" data-slide-to="1"></li>
-                    <li data-target="#carouselId" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" style="height:80vh" role="listbox">
-                    <div class="carousel-item active">
-                        <img class="img-fluid" src="images/carousel/product1.jpg" data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="img-fluid" src="images/carousel/product2.jpg" data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="img-fluid" src="images/carousel/product3.jpg" data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+        <ol class="carousel-indicators">
+            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselId" data-slide-to="1"></li>
+            <li data-target="#carouselId" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" style="height:80vh" role="listbox">
+            <div class="carousel-item active">
+                <img class="img-fluid" src="images/carousel/product1.jpg"
+                    data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
             </div>
+            <div class="carousel-item">
+                <img class="img-fluid" src="images/carousel/product2.jpg"
+                    data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid" src="images/carousel/product3.jpg"
+                    data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
     <!-- Content -->
     <section class="konten mt-3">
