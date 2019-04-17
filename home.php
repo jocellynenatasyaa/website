@@ -34,18 +34,20 @@
     <!-- Content -->
     <section class="konten">
         <div class="container">
-            <h1>Product</h1
+            <h1>Product</h1>
             <div class="row">
                 <?php
                 $ambil = $koneksi->query("SELECT * FROM produk");
                 while ($perproduk = $ambil->fetch_assoc()){
                 ?>
                 <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img src="foto_produk/<?php echo $perproduk['foto_produk'];?>" alt="" width="300px" height="300px">
-                        <div class="caption">
-                            <h3><?php echo $perproduk['nama_produk'];?></h3>
-                            <h5>Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
+                    <div class="card">
+                        <img src="foto_produk/<?php echo $perproduk['foto_produk'];?>" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, incidunt!</p>
+                            <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
+                            <br>
                             <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Beli</a>
                             <a href="detail.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-default">Detail</a>
                         </div>
