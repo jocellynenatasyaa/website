@@ -34,7 +34,8 @@
     <!-- Content -->
     <section class="konten">
         <div class="container">
-            <h1>Product</h1
+            <h1>Product</h1>
+
             <div class="row">
                 <?php
                 $ambil = $koneksi->query("SELECT * FROM produk");
