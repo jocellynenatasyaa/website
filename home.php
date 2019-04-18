@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Your Name</a>
+                    <a href="#" class="nav-link">Username</a>
                 </li>
 
             </ul>
