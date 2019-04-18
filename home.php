@@ -95,9 +95,9 @@
             <li data-target="#carouselId" data-slide-to="2"></li>
             <li data-target="#carouselId" data-slide-to="3"></li>
         </ol>
-        <div class="carousel-inner" style="height:95vh" role="listbox">
+        <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img style="margin: auto;" class="img-fluid" src="images/carousel/product1.jpg"
+                <img class="img-fluid" src="images/carousel/product1.jpg"
                     data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
             </div>
             <div class="carousel-item">
