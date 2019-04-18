@@ -17,10 +17,9 @@
                 "'.$email.'",
                 "'.$pass.'"
             )';
-
         mysqli_query($conn,$sql);
-        header('location: main.php');
+        header('location: login.php');
         }
-        echo $sql;
+        // echo $sql;
     }
 ?>

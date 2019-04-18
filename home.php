@@ -78,8 +78,30 @@
                         <i class="fas fa-envelope"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Username</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                        <?php
+                                echo $_SESSION['username'];
+                            ?>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a href="#" class="dropdown-item text-center text-capitalize">
+                        <i class="fas fa-user"></i>
+                            <?php
+                                echo $_SESSION['username'];
+                            ?>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <div class="container">
+                            <a class="btn btn-primary col-12" href="login.php">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+
+                    </div>
                 </li>
 
             </ul>
