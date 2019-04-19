@@ -11,7 +11,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Aphrodite</title>
-    <link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -37,7 +37,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="foto_produk/<?php echo $detail['foto_produk'];?>" alt="" class="img-responsive">
+                    <?php
+                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $detail['foto_produk'] ).'"/>';
+                ?>
                 </div>
                 <div class="col-md-6">
                     <h2><?php echo $detail['nama_produk']?></h2>
@@ -58,8 +60,6 @@
                         {
                             $jumlah = $_POST['jumlah'];
                             $_SESSION['keranjang'][$id_produk] = $jumlah;
-
-                            echo "<script>alert('Product added to cart');</script>";
                             echo "<script>location='cart.php';</script>";
                         }
                     ?>

@@ -1,4 +1,52 @@
-<h2>Add Product</h2>
+
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                <i class="fas fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="index.php?halaman=product">
+                <i class="fas fa-tshirt"></i>
+                    Product
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=transaction">
+                <i class="fas fa-hand-holding-usd"></i>
+                    Transaction
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=customers">
+                <i class="fas fa-users"></i>
+                    Customers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+
+                    Integrations
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+
+<h2 class="display-4 text-capitalize">
+        Add Product
+    </h2>
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label>Name</label>
@@ -48,9 +96,16 @@ if (isset($_POST['save']))
 
     $img = $_FILES['foto']['tmp_name'];
     $image = addslashes(file_get_contents($img));
-    move_uploaded_file($lokasi, "../foto_produk/".$nama);
     $koneksi->query("INSERT INTO produk(nama_produk, harga_produk, berat_produk, foto_produk, deskripsi_produk) 
     VALUES('$_POST[nama]', '$_POST[harga]', '$_POST[berat]', '$image', '$_POST[deskripsi]')");
-    echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=produk&toast=1'>";
+    echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=product&toast=1&msg=added'>";
 }
 ?>
+</main>
+
+<script>
+    $(document).ready(function () {
+        $('.toast').toast('show');
+
+    });
+</script>

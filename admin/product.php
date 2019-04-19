@@ -48,21 +48,44 @@ error_reporting(0);
     $toast = $_GET['toast'];
     if($toast == 1){
         ?>
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=5000 data-autohide="true">
-        <div class="toast-header">
-            <div class='bg-success rounded mr-2' style="padding:10px"></div>
-            <strong class="mr-auto">Aphrodite Admin</strong>
-            <small>Just Now</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Data added
-        </div>
-    </div>
-    <?php
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=5000 data-autohide="true">
+            <div class="toast-header">
+                <?php 
+                    if($_GET['msg'] == 'added'){
+                        echo 
+                "<div class='bg-success rounded mr-2' style='padding:10px'></div>";
 
+                    }
+                    else if($_GET['msg'] == 'removed'){
+                        echo "<div class='bg-danger rounded mr-2' style='padding:10px'></div>";;
+                    }
+                    else {
+                        echo 
+                "<div class='bg-success rounded mr-2' style='padding:10px'></div>";
+                    }
+                ?>
+                <strong class="mr-auto">Aphrodite Admin</strong>
+                <small>Just Now</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Data 
+                <?php 
+                    if($_GET['msg'] == 'added'){
+                        echo "added";
+                    }
+                    else if($_GET['msg'] == 'removed'){
+                        echo "removed";
+                    }
+                    else{
+                        echo "updated";
+                    }
+                ?>
+            </div>
+        </div>
+    <?php
     }
 ?>
     <h2 class="display-4 text-capitalize">

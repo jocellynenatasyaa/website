@@ -50,7 +50,7 @@
     </h2>
 
 <table class="table table-bordered">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>No</th>
             <th>Name</th>
