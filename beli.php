@@ -16,7 +16,6 @@ else
 // print_r($_SESSION);
 // echo "</pre>";
 
-//larikan ke halaman keranjang
-echo "<script>alert('product has been add to cart');</script>";
+//larikan ke halaman keranjang]
 echo "<script>location='cart.php'</script>"
 ?>

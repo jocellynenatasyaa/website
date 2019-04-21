@@ -7,7 +7,7 @@ $koneksi = new mysqli("localhost","root","","aphrodite");
 <html>
 <head>
   <title>Aphrodite</title>
-  <link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
 <!-- Navbar -->

@@ -155,7 +155,9 @@
                 ?>
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="foto_produk/<?php echo $perproduk['foto_produk'];?>" alt="" class="card-img-top">
+                    <?php
+                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
+                ?>
                         <div class="card-body">
                             <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
                             <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
