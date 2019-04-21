@@ -58,7 +58,7 @@
                         <input type="text" class="form-control" placeholder="Search...">
                         <div class="input-group-append">
                             <button class="btn btn-info" type="button">
-                                <i class="fa fa-search"></i>
+                                <i class="fa fa-search" onclick="f_search()"></i>
                             </button>
                         </div>
                     </div>
@@ -158,8 +158,7 @@
                         <img src="foto_produk/<?php echo $perproduk['foto_produk'];?>" alt="" class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-                                incidunt!</p>
+                            <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
                             <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
                             <br>
                             <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Beli</a>

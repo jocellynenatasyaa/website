@@ -32,7 +32,7 @@ $koneksi = new mysqli("localhost","root","","aphrodite");
 
     <section class="konten">
   <div class="container">
-    <h1>Cart</h1>
+    <h1>Checkout</h1>
     <hr>
     <table class="table table-bordered">
       <thead>
@@ -67,14 +67,14 @@ $koneksi = new mysqli("localhost","root","","aphrodite");
     </table>
     <form method="POST">
         <div class="form-group">
-            <input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['nama_pelanggan']?>">
+            <input type="text" readonly value="<?php echo $_SESSION["username"]?>">
         </div>
     </form>
   </div>
 </section>
 
 <pre>
-    <?php print_r($_SESSION["pelanggan"]);?>
+    <?php print_r($_SESSION["username"]);?>
 </pre>
 </body>
 </html>
