@@ -1,34 +1,3 @@
-<?php
-session_start();
-$koneksi = new mysqli("localhost","root","","aphrodite");
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Aphrodite</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-</head>
-<body>
-<!-- Navbar -->
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>
-                    <a href="cart.php">Cart</a>
-                </li>
-                <li>
-                    <a href="login.php">Login</a>
-                </li>
-                <li>
-                    <a href="checkout.php">Checkout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
 <section class="konten">
   <div class="container">
     <h1>Cart</h1>
@@ -68,5 +37,3 @@ $koneksi = new mysqli("localhost","root","","aphrodite");
     <a href="checkout.php" class="btn btn-primary">Checkout</a>
   </div>
 </section>
-</body>
-</html>
