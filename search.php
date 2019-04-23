@@ -1,12 +1,20 @@
 <?php
     session_start();
     $koneksi = new mysqli("localhost","root","","aphrodite");
-    $id_produk = $_GET['id'];
-    $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-    $detail = $ambil->fetch_assoc();
+    $search = $_GET['search'];
+
+    $data=array();
+    $ambil = $koneksi->query("SELECT * FROM produk WHERE nama_produk LIKE '%$search%'
+        OR deskripsi_produk LIKE '%$search%'");
+    while($pecah = $ambil->fetch_assoc())
+    {
+        $data[]=$pecah;
+    }
+    
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -31,9 +39,10 @@
     <script src="js/main.js"></script>
 </head>
 
+<body class="bg-light">
     <!-- Navbar -->
     <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
-        <a class="navbar-brand" href="#" onclick="loadLandingPage()">
+        <a class="navbar-brand" href="#">
             <img src="img/logo/logo_font_white.svg" style="height:23px;" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -56,17 +65,19 @@
                     </div>
                 </li>
                 <li class="col-12 col-lg-9">
+                <form action="search.php" method="GET">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Search..." name="search">
                         <div class="input-group-append">
                             <button class="btn btn-info" type="button">
-                                <i class="fa fa-search" onclick="f_search()"></i>
+                                <i class="fa fa-search"></i>
                             </button>
                         </div>
                     </div>
+                </form>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="loadCartPage()">
+                    <a href="cart.php" class="nav-link">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                 </li>
@@ -109,39 +120,35 @@
             </ul>
         </div>
     </nav>
-
-    <section class="kontent">
-        <div class="container" style="margin-top:70px;">
-            <div class="row">
-                <div class="col-md-6">
-                    <?php
-                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $detail['foto_produk'] ).'"/>';
+    <div class="container" style="margin-top:70px;">
+        <h3>Hasil Pencarian : <?php echo $search;?></h3>
+        <?php
+            if(empty($data)):
                 ?>
-                </div>
-                <div class="col-md-6">
-                    <h2><?php echo $detail['nama_produk']?></h2>
-                    <h4>Rp. <?php echo number_format($detail['harga_produk']);?></h4>
-
-                    <form method="POST">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="number" name="jumlah" min="1" class="form-control">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary" name="beli">Buy</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <?php
-                        if(isset($_POST['beli']))
-                        {
-                            $jumlah = $_POST['jumlah'];
-                            $_SESSION['keranjang'][$id_produk] = $jumlah;
-                            echo "<script>location='cart.php';</script>";
-                        }
-                    ?>
-                    <p><?php echo $detail['deskripsi_produk']?></p>
+                <div class="alert alert-danger">Pencarian tidak ditemukan</div>
+            <?php endif
+        ?>
+        
+        <div class="row">
+            <?php
+                foreach ($data as $key => $value):
+            ?>
+            <div class="col-md-3">
+                <div class="card">
+                <?php
+                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $value['foto_produk'] ).'"/>';
+                ?>
+                    <div class="card-body">
+                        <h3 class="card-title"><?php echo $value['nama_produk'];?></h3>
+                        <p class="card-text"><?php echo $value['deskripsi_produk'];?></p>
+                        <h5 class="card-subtitle">Rp. <?php echo number_format($value['harga_produk']);?></h5>
+                        <br>
+                        <a href="beli.php?id=<?php echo $value['id_produk'];?>" class="btn btn-primary">Beli</a>
+                        <a href="detail.php?id=<?php echo $value['id_produk'];?>"
+                            class="btn btn-default">Detail</a>
+                    </div>
                 </div>
             </div>
+            <?php endforeach ?>
         </div>
-    </section>
+    </div>

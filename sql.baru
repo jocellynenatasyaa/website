@@ -1,0 +1,13 @@
+ALTER TABLE `tbuser` ADD `nama` VARCHAR(100) NOT NULL AFTER `username`;
+ALTER TABLE `tbuser` ADD `telepon` VARCHAR(25) NOT NULL AFTER `password`;
+UPDATE `tbuser` SET `nama` = 'Erick Cartiady' WHERE `tbuser`.`username` = 'erick'; 
+UPDATE `tbuser` SET `nama` = 'Herman Tio' WHERE `tbuser`.`username` = 'herman'; 
+UPDATE `tbuser` SET `nama` = 'Lilian Liwanto' WHERE `tbuser`.`username` = 'lilian liwanto'; 
+UPDATE `tbuser` SET `nama` = 'Jocellyne Natasya' WHERE `tbuser`.`username` = 'natasya'; 
+UPDATE `tbuser` SET `nama` = 'Stevanny Anjelika' WHERE `tbuser`.`username` = 'stevanny';
+UPDATE `tbuser` SET `telepon` = '081250150667' WHERE `tbuser`.`username` = 'erick'; 
+UPDATE `tbuser` SET `telepon` = '089618908224' WHERE `tbuser`.`username` = 'herman'; 
+UPDATE `tbuser` SET `telepon` = '081253417262' WHERE `tbuser`.`username` = 'lilian liwanto'; 
+UPDATE `tbuser` SET `telepon` = '082148512783' WHERE `tbuser`.`username` = 'natasya'; 
+UPDATE `tbuser` SET `telepon` = '085250566466' WHERE `tbuser`.`username` = 'stevanny';
+TRUNCATE produk;

@@ -1,12 +1,10 @@
 <?php
     session_start();
     $koneksi = new mysqli("localhost","root","","aphrodite");
-    $id_produk = $_GET['id'];
-    $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-    $detail = $ambil->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -110,38 +108,42 @@
         </div>
     </nav>
 
-    <section class="kontent">
-        <div class="container" style="margin-top:70px;">
-            <div class="row">
-                <div class="col-md-6">
-                    <?php
-                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $detail['foto_produk'] ).'"/>';
-                ?>
-                </div>
-                <div class="col-md-6">
-                    <h2><?php echo $detail['nama_produk']?></h2>
-                    <h4>Rp. <?php echo number_format($detail['harga_produk']);?></h4>
-
-                    <form method="POST">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="number" name="jumlah" min="1" class="form-control">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary" name="beli">Buy</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <?php
-                        if(isset($_POST['beli']))
-                        {
-                            $jumlah = $_POST['jumlah'];
-                            $_SESSION['keranjang'][$id_produk] = $jumlah;
-                            echo "<script>location='cart.php';</script>";
-                        }
-                    ?>
-                    <p><?php echo $detail['deskripsi_produk']?></p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="konten">
+  <div class="container" style="margin-top:70px;">
+    <h1>Cart</h1>
+    <hr>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $nomor=1;
+          foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
+          $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+          $pecah = $ambil->fetch_assoc();
+          $subharga = $pecah['harga_produk']*$jumlah;
+        ?>
+        <tr>
+          <td><?php echo $nomor;?></td>
+          <td><?php echo $pecah['nama_produk'];?></td>
+          <td>Rp.<?php echo number_format($pecah['harga_produk']);?></td>
+          <td><?php echo $jumlah;?></td>
+          <td>Rp. <?php echo number_format($subharga);?></td>
+        </tr>
+        <?php
+        $nomor++;
+        endforeach
+        ?>
+      </tbody>
+    </table>
+    <a href="home.php" class="btn btn-default">Continue Shopping</a>
+    <a href="checkout.php" class="btn btn-primary">Checkout</a>
+  </div>
+</section>
