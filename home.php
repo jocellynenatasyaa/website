@@ -47,8 +47,8 @@
      Category
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Men</a>
-      <a class="dropdown-item" href="#">Woman</a>
+      <a class="dropdown-item" href="category_men.html">Men</a>
+      <a class="dropdown-item" href="category_woman.html">Woman</a>
     </div>
   </div>
 
