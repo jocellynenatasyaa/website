@@ -49,7 +49,6 @@
     <div class="dropdown-menu">
       <a class="dropdown-item" href="#">Men</a>
       <a class="dropdown-item" href="#">Woman</a>
-      <a class="dropdown-item" href="#">Kids</a>
     </div>
   </div>
 
