@@ -42,18 +42,17 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto container-fluid justify-content-between">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+            <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+     Category
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Men</a>
+      <a class="dropdown-item" href="#">Woman</a>
+      <a class="dropdown-item" href="#">Kids</a>
+    </div>
+  </div>
+
                 <li class="col-12 col-lg-9">
                 <form action="search.php" method="GET">
                     <div class="input-group">
