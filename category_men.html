@@ -1,103 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>MEN</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <head>
+    <title>WOMAN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+    }
+          .bg-luxury-blue {
+              background: #002A54;
+          }
+  
+          .dropdown-toggle:after {
+              content: none
+          }
+    </style>
+  </head>
   <style>
-  /* Make the image fully responsive */
-  .carousel-inner img {
+  
+  
+  .container {
+      max-width: 100%;
+    }
+  
+    .row {
+      margin-right: -15px;
+      margin-left: -15px;
+      margin: 0px;
+    }
+  
+    .row-before, .row-after {
+      display : table;
+      content: "";
+    }
+  
+    .row-after {
+      clear: both;
+    }
+  
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+    .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+      float: left;
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+      box-sizing: border-box;
+      border: none;
+    }
+  
+    .col-1 {
+      width: 8.33%;
+    }
+  
+    .col-2 {
+      width: 16.66%;
+    }
+  
+    .col-3 {
+      width: 25%;
+    }
+  
+    .col-4 {
+      width: 33.33%;
+    }
+  
+    .col-5 {
+      width: 41.66%;
+    }
+  
+    .col-6 {
+      width: 50%;
+    }
+  
+    .col-7 {
+      width: 58.33%;
+    }
+  
+    .col-8 {
+      width: 66.66%;
+    }
+  
+    .col-9 {
+      width: 75%;
+    }
+  
+    .col-10 {
+      width: 83.33%;
+    }
+  
+    .col-11 {
+      width: 91.66%;
+    }
+  
+    .col-12 {
       width: 100%;
-  }
-  </style>
-</head>
-<style>
-
-
-.container {
-    max-width: 100%;
-  }
-
-  .row {
-    margin-right: -15px;
-    margin-left: -15px;
-    margin: 0px;
-  }
-
-  .row-before, .row-after {
-    display : table;
-    content: "";
-  }
-
-  .row-after {
-    clear: both;
-  }
-
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-    float: left;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-sizing: border-box;
-    border: none;
-  }
-
-  .col-1 {
-    width: 8.33%;
-  }
-
-  .col-2 {
-    width: 16.66%;
-  }
-
-  .col-3 {
-    width: 25%;
-  }
-
-  .col-4 {
-    width: 33.33%;
-  }
-
-  .col-5 {
-    width: 41.66%;
-  }
-
-  .col-6 {
-    width: 50%;
-  }
-
-  .col-7 {
-    width: 58.33%;
-  }
-
-  .col-8 {
-    width: 66.66%;
-  }
-
-  .col-9 {
-    width: 75%;
-  }
-
-  .col-10 {
-    width: 83.33%;
-  }
-
-  .col-11 {
-    width: 91.66%;
-  }
-
-  .col-12 {
-    width: 100%;
-  }
- </style>
-<body>
-
+    }
+   </style>
+  
+  <body class="bg-light">
+      <!-- Navbar -->
+      <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
+          <a class="navbar-brand" href="#">
+              <img src="img/logo/logo_font_white.svg" style="height:23px;" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto container-fluid justify-content-between">
+              <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Category
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="category_men.html">Men</a>
+        <a class="dropdown-item" href="category_woman.html">Woman</a>
+      </div>
+    </div>
+  
+                  <li class="col-12 col-lg-9">
+                  <form action="search.php" method="GET">
+                      <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search..." name="search">
+                          <div class="input-group-append">
+                              <button class="btn btn-info" type="button">
+                                  <i class="fa fa-search"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+                  </li>
+                  <li class="nav-item">
+                      <a href="cart.php" class="nav-link">
+                          <i class="fas fa-shopping-cart"></i>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="fas fa-bell"></i>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="fas fa-envelope"></i>
+                      </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#" id="navbarDropdown" role="button"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-user"></i>
+                          <?php
+                                  echo $_SESSION['username'];
+                              ?>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a href="#" class="dropdown-item text-center text-capitalize">
+                          <i class="fas fa-user"></i>
+                              <?php
+                                  echo $_SESSION['username'];
+                              ?>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <div class="container">
+                              <a class="btn btn-primary col-12" href="login.php">
+                                  <i class="fas fa-sign-out-alt"></i>
+                                  Logout
+                              </a>
+                          </div>
+  
+                      </div>
+                  </li>
+  
+              </ul>
+          </div>
+      </nav>
+      <br>
+    <br>
+    <br>
 <div class="container">
 
 <div class="row">
@@ -253,16 +345,16 @@
 </div>
 <hr>
 <div class="row">
-  <div class="col-3"><img src="logo1.jpg"> </div>
-  <div class="col-3"><img src="logo2.jpg"> </div>
-  <div class="col-3"><img src="logo3.jpg"> </div>
-  <div class="col-3"><img src="logo4.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo1.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo2.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo3.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo4.jpg"> </div>
 </div>
 <div class="row">
-  <div class="col-3"><img src="logo5.jpg"> </div>
-  <div class="col-3"><img src="logo6.jpg"> </div>
-  <div class="col-3"><img src="logo7.jpg"> </div>
-  <div class="col-3"><img src="logo8.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo5.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo6.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo7.jpg"> </div>
+  <div class="col-3"><img src="images/category/logo8.jpg"> </div>
 </div>
 </div>
 </body>
