@@ -28,6 +28,91 @@
     </style>
     <script src="js/main.js"></script>
 </head>
+<style>
+
+
+.container {
+    max-width: 100%;
+  }
+
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin: 0px;
+  }
+
+  .row-before, .row-after {
+    display : table;
+    content: "";
+  }
+
+  .row-after {
+    clear: both;
+  }
+
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    border: none;
+  }
+
+  .col-1 {
+    width: 8.33%;
+  }
+
+  .col-2 {
+    width: 16.66%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.33%;
+  }
+
+  .col-5 {
+    width: 41.66%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.33%;
+  }
+
+  .col-8 {
+    width: 66.66%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.33%;
+  }
+
+  .col-11 {
+    width: 91.66%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
+  footer {
+      background-color: #002A54;
+  }
+ </style>
 
 <body class="bg-light">
     <!-- Navbar -->
@@ -42,18 +127,16 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto container-fluid justify-content-between">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+            <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+     Category
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="category_men.html">Men</a>
+      <a class="dropdown-item" href="category_woman.html">Woman</a>
+    </div>
+  </div>
+
                 <li class="col-12 col-lg-9">
                 <form action="search.php" method="GET">
                     <div class="input-group">
@@ -122,19 +205,15 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img class="img-fluid" src="images/carousel/product1.jpg"
+                <img class="img-fluid" src="images/carousel/men.jpg"
                     data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product2.jpg"
+                <img class="img-fluid" src="images/carousel/woman.jpg"
                     data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product3.jpg"
-                    data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product4.jpg"
+                <img class="img-fluid" src="images/carousel/family.jpg"
                     data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
             </div>
         </div>
@@ -147,6 +226,20 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+    <!-- flash sale -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            hai
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</div>
+
+
 
     <!-- Content -->
     <section class="konten mt-3">
@@ -181,6 +274,50 @@
     </section>        
 
         </div>
+        <hr>
+
+        <!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+<!-- Footer Elements -->
+<div class="container">
+
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+
+      <!-- Form -->
+      <img src="images/logo.png">
+      <!-- Form -->
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+
+     
+    
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+</div>
+<!-- Footer Elements -->
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">
+  <a href="https://ski.sch.id/new/smk-kristen-immanuel/"> SMK KRISTEN IMMANUEL PONTIANAK</a>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
     
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
