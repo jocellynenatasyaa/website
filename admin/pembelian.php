@@ -64,14 +64,14 @@
             $nomor=1;
         ?>
         <?php 
-            $ambil = $koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan");
+            $ambil = $koneksi->query("SELECT * FROM pembelian JOIN tbuser ON pembelian.id_pelanggan=tbuser.username");
         ?>
         <?php
             while($pecah = $ambil->fetch_assoc()){
         ?>
     <tr>
             <td><?php echo $nomor;?></td> 
-            <td><?php echo $pecah['nama_pelanggan'];?></td>
+            <td><?php echo $pecah['username'];?></td>
             <td><?php echo $pecah['tanggal_pembelian'];?></td>
             <td><?php echo $pecah['total_pembelian'];?></td>
             <td>

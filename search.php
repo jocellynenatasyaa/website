@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $koneksi = new mysqli("localhost","root","","aphrodite");
+    include 'koneksi.php';
     $search = $_GET['search'];
 
     $data=array();

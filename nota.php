@@ -1,6 +1,6 @@
 <?php
     session_start();
-   
+   include 'koneksi.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -151,46 +151,70 @@
     <!-- Content -->
     <section class="konten mt-3">
         <div class="container">
-            <div class="row">
-                <?php
-                 include 'koneksi.php';
-                    $ambil = $conn->query("SELECT * FROM produk");
-                    while ($perproduk = $ambil->fetch_assoc()){
-                ?>
-                <div class="col-md-3">
-                    <div class="card">
+            <h2>Purchasing Detail</h2>
+            <?php
+                $ambil = $conn->query("SELECT * FROM pembelian JOIN tbuser ON pembelian.id_pelanggan=tbuser.username WHERE pembelian.id_pembelian='$_GET[id]'");
+                $detail = $ambil->fetch_assoc();
+            ?>
+
+            <strong><?php echo $detail['nama'];?></strong><br>
+            <p>
+                <?php echo $detail['telepon'];?> <br>
+                <?php echo $detail['email'];?>
+            </p>
+            <p>
+                <?php echo $detail['tanggal_pembelian'];?> <br>
+                <?php echo $detail['total_pembelian'];?>
+            </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php
-                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
-                ?>
-                        <div class="card-body">
-                            <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
-                            <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
-                            <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
-                            <br>
-                            <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Beli</a>
-                            <a href="detail.php?id=<?php echo $perproduk['id_produk'];?>"
-                                class="btn btn-default">Detail</a>
-                        </div>
+                        $nomor=1;
+                    ?>
+                    <?php 
+                        $sql = "SELECT * FROM pembelian_produk LEFT JOIN produk ON pembelian_produk.id_produk=produk.id_produk WHERE pembelian_produk.id_pembelian='$_GET[id]'";
+                        $ambil = $conn->query($sql);
+                    ?>
+                    <?php
+                        while($pecah = $ambil->fetch_assoc()){
+                    ?>
+                <tr>
+                        <td><?php echo $nomor;?></td> 
+                        <td><?php echo $pecah['nama_produk'];?></td>
+                        <td><?php echo $pecah['harga_produk'];?></td>
+                        <td><?php echo $pecah['jumlah'];?></td>
+                        <td>
+                            <?php echo $pecah['harga_produk']*$pecah['jumlah'];?>
+                        </td>
+                    </tr>
+                    <?php
+                        $nomor++;
+                    ?>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="alert alert-info">
+                    <p>Silahkan melakukan pembayaran Rp. <?php echo number_format($detail['total_pembelian']);?>
+                    ke <br> 
+                    <strong>
+                        BANK BCA 778-9936290-2280 AN. Aphrodite
+                    </strong>
+                    </p>
                     </div>
                 </div>
-                <?php 
-                    } 
-                ?>
             </div>
         </div>
-    </section>        
-
-        </div>
-    
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-</script>
-
-</html>
+    </section>

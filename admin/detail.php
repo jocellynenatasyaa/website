@@ -1,3 +1,4 @@
+
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
     <ul class="nav flex-column">
@@ -45,14 +46,14 @@
 
 <h2>Purchasing Detail</h2>
 <?php
-    $ambil = $koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE pembelian.id_pembelian='$_GET[id]'");
+    $ambil = $koneksi->query("SELECT * FROM pembelian JOIN tbuser ON pembelian.id_pelanggan=tbuser.username WHERE pembelian.id_pembelian='$_GET[id]'");
     $detail = $ambil->fetch_assoc();
 ?>
 
-<strong><?php echo $detail['nama_pelanggan'];?></strong><br>
+<strong><?php echo $detail['nama'];?></strong><br>
 <p>
-    <?php echo $detail['telepon_pelanggan'];?> <br>
-    <?php echo $detail['email_pelanggan'];?>
+    <?php echo $detail['telepon'];?> <br>
+    <?php echo $detail['email'];?>
 </p>
 <p>
     <?php echo $detail['tanggal_pembelian'];?> <br>

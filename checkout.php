@@ -1,7 +1,6 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost","root","","aphrodite");
-
+include 'koneksi.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -125,35 +124,103 @@ $koneksi = new mysqli("localhost","root","","aphrodite");
       </thead>
       <tbody>
         <?php
-          $nomor=1;
-          foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
-          $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-          $pecah = $ambil->fetch_assoc();
-          $subharga = $pecah['harga_produk']*$jumlah;
+        $nomor=1;
+        $totalbelanja=0;
+        foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
+        $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+        $pecah = $ambil->fetch_assoc();
+        $subharga = $pecah['harga_produk']*$jumlah;
         ?>
         <tr>
-          <td><?php echo $nomor;?></td>
-          <td><?php echo $pecah['nama_produk'];?></td>
-          <td>Rp.<?php echo number_format($pecah['harga_produk']);?></td>
-          <td><?php echo $jumlah;?></td>
-          <td>Rp. <?php echo number_format($subharga);?></td>
+            <td><?php echo $nomor;?></td>
+            <td><?php echo $pecah['nama_produk'];?></td>
+            <td>Rp.<?php echo number_format($pecah['harga_produk']);?></td>
+            <td><?php echo $jumlah;?></td>
+            <td>Rp. <?php echo number_format($subharga);?></td>
         </tr>
         <?php
         $nomor++;
+        $totalbelanja+=$subharga;
         endforeach
         ?>
       </tbody>
+      <tfoot>
+            <th colspan="4">Total</th>
+            <th>Rp. 385.000</th>
+      </tfoot>
+      <tfoot>
+            <th colspan="4">Subtotal</th>
+            <th>Rp. <?php echo number_format($totalbelanja)?></th>
+      </tfoot>
     </table>
     <form method="POST">
-        <div class="form-group">
-            <input type="text" readonly value="<?php echo $_SESSION["username"]?>">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                <input type="text" readonly value="<?php echo $_SESSION["tbuser"]['nama']?>" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input type="text" readonly value="<?php echo $_SESSION["tbuser"]['telepon']?>" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-4">
+                
+                    <select name="id_ongkir" class="form-control">
+                        <option value="">Pilihan Pengiriman</option>
+                        <?php
+                            $ambil = $conn->query("SELECT * FROM ongkir");
+                            while($perongkir = $ambil->fetch_assoc())
+                            {
+                                ?>
+                                <option value="<?php echo $perongkir['id_ongkir']?>">
+                                <?php echo $perongkir['nama_kota']?> -
+                                Rp. <?php echo number_format($perongkir['tarif'])?>
+                                </option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+            </div>
         </div>
+        <button class="btn btn-primary" name="checkout">Checkout</button>
     </form>
+    <?php
+    if(isset($_POST['checkout']))
+    {
+        $id_pelanggan = $_SESSION['tbuser']['username'];
+        $id_ongkir = $_POST['id_ongkir'];
+        $tanggal_pembelian = date("Y-m-d");
+
+        $ambil = $conn->query("SELECT * FROM ongkir WHERE id_ongkir='$id_ongkir'");
+        $arrayongkir = $ambil->fetch_assoc();
+        $tarif = $arrayongkir['tarif'];
+
+        $total_pembelian = $totalbelanja + $tarif;
+
+        $conn->query("INSERT INTO pembelian(id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian)
+        VALUES('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian')");
+
+        $id_pembelian_barusan = $conn->insert_id;
+    
+        foreach($_SESSION['keranjang'] as $id_produk => $jumlah)
+        {
+            $conn->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah)
+            VALUES('$id_pembelian_barusan','$id_produk','$jumlah')");
+        }
+        unset ($_SESSION['keranjang']);
+        echo "<script>alert('pembelian sukses');</script>";
+        echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
+    }
+    ?>
+    
   </div>
 </section>
 
 <pre>
-    <?php print_r($_SESSION["pelanggan"]);?>
+    <?php print_r($_SESSION["tbuser"]);?>
+    <?php print_r($_SESSION["keranjang"]);?>
 </pre>
 </body>
 </html>

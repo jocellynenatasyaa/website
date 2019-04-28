@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $koneksi = new mysqli("localhost","root","","aphrodite");
+    include 'koneksi.php';
     $id_produk = $_GET['id'];
-    $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+    $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
     $detail = $ambil->fetch_assoc();
 ?>
 <!DOCTYPE html>

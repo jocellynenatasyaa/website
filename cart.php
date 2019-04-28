@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $koneksi = new mysqli("localhost","root","","aphrodite");
+    include 'koneksi.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -126,7 +126,7 @@
         <?php
           $nomor=1;
           foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
-          $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+          $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
           $pecah = $ambil->fetch_assoc();
           $subharga = $pecah['harga_produk']*$jumlah;
         ?>
