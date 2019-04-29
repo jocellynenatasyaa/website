@@ -28,91 +28,7 @@
     </style>
     <script src="js/main.js"></script>
 </head>
-<style>
 
-
-.container {
-    max-width: 100%;
-  }
-
-  .row {
-    margin-right: -15px;
-    margin-left: -15px;
-    margin: 0px;
-  }
-
-  .row-before, .row-after {
-    display : table;
-    content: "";
-  }
-
-  .row-after {
-    clear: both;
-  }
-
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-    float: left;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-sizing: border-box;
-    border: none;
-  }
-
-  .col-1 {
-    width: 8.33%;
-  }
-
-  .col-2 {
-    width: 16.66%;
-  }
-
-  .col-3 {
-    width: 25%;
-  }
-
-  .col-4 {
-    width: 33.33%;
-  }
-
-  .col-5 {
-    width: 41.66%;
-  }
-
-  .col-6 {
-    width: 50%;
-  }
-
-  .col-7 {
-    width: 58.33%;
-  }
-
-  .col-8 {
-    width: 66.66%;
-  }
-
-  .col-9 {
-    width: 75%;
-  }
-
-  .col-10 {
-    width: 83.33%;
-  }
-
-  .col-11 {
-    width: 91.66%;
-  }
-
-  .col-12 {
-    width: 100%;
-  }
-
-  footer {
-      background-color: #002A54;
-  }
- </style>
 
 <body class="bg-light">
     <!-- Navbar -->
@@ -142,7 +58,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search..." name="search">
                         <div class="input-group-append">
-                            <button class="btn btn-info" type="button">
+                        <button type="button" class="btn btn-primary">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
