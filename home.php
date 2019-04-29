@@ -287,9 +287,11 @@
           <!-- Flashsale  -->
         <div class="row">
             <div class="col-6">
-            <img src="images/carousel/girl.jpg">
+            <img src="images/flashsale2.jpg" alt="flashsale1">
                 </div>
             <div class="col-6">
+                <img src="images/flashsale3.jpg" alt="flashsale1">
+
             </div>
         </div>
            <!-- flashsale -->
