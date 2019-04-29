@@ -273,13 +273,14 @@
             </div>
             </div>
         </div>
+        <br>
           <!-- Flashsale  -->
           <div class="row">
-          <div class="col-6">
-              
-          </div>
-          <div class="col-6">
-
+          <div class="col-12">
+          <div class="card bg-warning text-white">
+    <div class="card-body"><center><h2>Enjoy Free Delivery </h2> <h5><i>until 11 Sept' 2019</i></h5></center>
+    </div>
+  </div>
           </div>
           </div>
            <!-- flashsale -->
