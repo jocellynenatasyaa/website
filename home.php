@@ -291,10 +291,10 @@
         <div class="footer">
         <div class="media border p-3">
     <div class="media-body">
-      <h4>SMK KRISTEN IMMANUEL PONTIANAK </h4>
+    <a href="https://ski.sch.id/new/smk-kristen-immanuel/"><h4>SMK KRISTEN IMMANUEL PONTIANAK </h4></a>
       <p>Cerdas, Bijak, dan Bertanggung Jawab</p>      
     </div>
-    <img src="images/smk.png" alt="smk" class="ml-3 mt-3" style="width:60px;">
+    <a href="https://ski.sch.id/new/smk-kristen-immanuel/"> <img src="images/smk.png" alt="smk" class="ml-3 mt-3" style="width:60px;"></a>
   </div>
   <div>
            <!-- footer -->
