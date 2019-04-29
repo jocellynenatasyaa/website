@@ -274,7 +274,7 @@
             </div>
         </div>
         <br>
-          <!-- Flashsale  -->
+    
           <div class="row">
           <div class="col-12">
           <div class="card bg-warning text-white">
@@ -283,6 +283,15 @@
   </div>
           </div>
           </div>
+          <br>
+          <!-- Flashsale  -->
+        <div class="row">
+            <div class="col-6">
+            <img src="images/carousel/girl.jpg">
+                </div>
+            <div class="col-6">
+            </div>
+        </div>
            <!-- flashsale -->
 
 
