@@ -17,15 +17,12 @@
         .nav-link {
             color: white;
         }
-
         .bg-luxury-blue {
             background: #002A54;
         }
-
         .dropdown-toggle:after {
             content: none
         }
-
         .quantity {
             float: left;
             margin-right: 15px;
@@ -34,7 +31,6 @@
             width: 80px;
             overflow: hidden
         }
-
         .quantity input {
             margin: 0;
             text-align: center;
@@ -48,7 +44,6 @@
             outline: 0;
             background-color: #F6F6F6
         }
-
         .quantity input.qty {
             position: relative;
             border: 0;
@@ -61,7 +56,6 @@
             border-radius: 0;
             background-clip: padding-box
         }
-
         .quantity .minus,
         .quantity .plus {
             line-height: 0;
@@ -81,16 +75,13 @@
             width: 25px;
             z-index: 3
         }
-
         .quantity .minus:hover,
         .quantity .plus:hover {
             background-color: #dad8da
         }
-
         .quantity .minus {
             bottom: 0
         }
-
         .shopping-cart {
             margin-top: 20px;
         }
@@ -98,7 +89,6 @@
     <script src="js/main.js"></script>
 </head>
 
-<<<<<<< HEAD
 <!-- Navbar -->
 <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
     <a class="navbar-brand" href="#" onclick="loadLandingPage()">
@@ -153,62 +143,6 @@
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
                     <?php
-<body class="bg-light">
-    <!-- Navbar -->
-    <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
-        <a class="navbar-brand" href="home.php">
-            <img src="img/logo/logo_font_white.svg" style="height:23px;" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto container-fluid justify-content-between">
-            <div class="dropdown">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-     Category
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="category_men.html">Men</a>
-      <a class="dropdown-item" href="category_woman.html">Woman</a>
-    </div>
-  </div>
-
-                <li class="col-12 col-lg-9">
-                <form action="search.php" method="GET">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." name="search">
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                </li>
-                <li class="nav-item">
-                    <a href="cart.php" class="nav-link">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-bell"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                        <?php
->>>>>>> bcc99d1aeaaf0122e342701259d2cb6b008f1e7e
                                 echo $_SESSION['username'];
                             ?>
                 </a>
@@ -225,7 +159,6 @@
                             <i class="fas fa-sign-out-alt"></i>
                             Logout
                         </a>
-<<<<<<< HEAD
                     </div>
 
                 </div>
@@ -254,7 +187,6 @@
             $pecah = $ambil->fetch_assoc();
             $subharga = $pecah['harga_produk']*$jumlah;
             
-
             ?>
                 
                 <div class="row">
@@ -324,18 +256,6 @@
                     </div>
                 </div>
             </div>
-=======
-                        <div class="dropdown-divider"></div>
-                        <div class="container">
-                            <a class="btn btn-primary col-12" href="login.php">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Logout
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
->>>>>>> bcc99d1aeaaf0122e342701259d2cb6b008f1e7e
         </div>
     </div>
     </div>
