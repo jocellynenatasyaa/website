@@ -62,16 +62,16 @@
             $nomor=1;
         ?>
         <?php 
-            $ambil = $koneksi->query("SELECT * FROM pelanggan");
+            $ambil = $koneksi->query("SELECT * FROM tbuser");
         ?>
         <?php
             while($pecah = $ambil->fetch_assoc()){
         ?>
     <tr>
             <td><?php echo $nomor;?></td>
-            <td><?php echo $pecah['nama_pelanggan'];?></td>
-            <td><?php echo $pecah['email_pelanggan'];?></td>
-            <td><?php echo $pecah['telepon_pelanggan'];?></td>
+            <td><?php echo $pecah['nama'];?></td>
+            <td><?php echo $pecah['email'];?></td>
+            <td><?php echo $pecah['telepon'];?></td>
             <td>
                 <a href="" class="btn-danger btn">Delete</a>
             </td>
@@ -92,4 +92,4 @@
         $('.toast').toast('show');
 
     });
-</script>
+</script>   

@@ -28,6 +28,13 @@
     </style>
     <script src="js/main.js"></script>
 </head>
+<style>
+
+
+  footer {
+      background-color: #002A54;
+  }
+ </style>
 
 <body class="bg-light">
     <!-- Navbar -->
@@ -42,27 +49,27 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto container-fluid justify-content-between">
-                <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Category
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="category_men.html">Men</a>
-                        <a class="dropdown-item" href="category_woman.html">Woman</a>
-                    </div>
-                </div>
+            <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+     Category
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="category_men.html">Men</a>
+      <a class="dropdown-item" href="category_woman.html">Woman</a>
+    </div>
+  </div>
 
                 <li class="col-12 col-lg-9">
-                    <form action="search.php" method="GET">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search..." name="search">
-                            <div class="input-group-append">
-                                <button class="btn btn-info" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
+                <form action="search.php" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." name="search">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
-                    </form>
+                    </div>
+                </form>
                 </li>
                 <li class="nav-item">
                     <a href="cart.php" class="nav-link">
@@ -80,9 +87,8 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#"
-                        id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i>
                         <?php
                                 echo $_SESSION['username'];
@@ -90,7 +96,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a href="#" class="dropdown-item text-center text-capitalize">
-                            <i class="fas fa-user"></i>
+                        <i class="fas fa-user"></i>
                             <?php
                                 echo $_SESSION['username'];
                             ?>
@@ -102,60 +108,52 @@
                                 Logout
                             </a>
                         </div>
+
                     </div>
                 </li>
 
             </ul>
         </div>
     </nav>
+<br><br><br>
 
-    <section class="konten">
-        <div class="container" style="margin-top:70px;">
-            <h1>Cart</h1>
-            <hr>
+    <!--Content-->
+    <section class="riwayat">
+        <div class="container">
+            <h3>Riwayat Belanja <?php echo $_SESSION['tbuser']['nama']?></h3>
+
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>Date</th>
+                        <th>Status</th>
                         <th>Total</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-          $nomor=1;
-          foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
-          $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-          $pecah = $ambil->fetch_assoc();
-          $subharga = $pecah['harga_produk']*$jumlah;
-        ?>
+                <?php 
+                    $nomor=1;
+                    $username = $_SESSION['tbuser']['username'];
+                    $ambil=$conn->query("SELECT * FROM pembelian WHERE id_pelanggan='$username'");
+                    while($pecah=$ambil->fetch_assoc()){
+                ?>
                     <tr>
                         <td><?php echo $nomor;?></td>
-                        <td><?php echo $pecah['nama_produk'];?></td>
-                        <td>Rp.<?php echo number_format($pecah['harga_produk']);?></td>
-                        <td><?php echo $jumlah;?></td>
-                        <td>Rp. <?php echo number_format($subharga);?></td>
+                        <td><?php echo $pecah['tanggal_pembelian']?></td>
+                        <td><?php echo $pecah['status']?></td>
+                        <td>Rp. <?php echo number_format($pecah['total_pembelian'])?></td>
+                        <td>
+                            <a href="nota.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-info">Nota</a>
+                            <a href="" class="btn btn-success">Pembayaran</a>
+                        </td>
                     </tr>
                     <?php
-        $nomor++;
-        endforeach
-        ?>
+                    $nomor++;
+                    }
+                    ?>
                 </tbody>
             </table>
-            <a href="home.php" class="btn btn-default">Continue Shopping</a>
-            <a href="checkout.php" class="btn btn-primary">Checkout</a>
         </div>
     </section>
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-</script>
-

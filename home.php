@@ -31,84 +31,6 @@
 <style>
 
 
-.container {
-    max-width: 100%;
-  }
-
-  .row {
-    margin-right: -15px;
-    margin-left: -15px;
-    margin: 0px;
-  }
-
-  .row-before, .row-after {
-    display : table;
-    content: "";
-  }
-
-  .row-after {
-    clear: both;
-  }
-
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-    float: left;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-sizing: border-box;
-    border: none;
-  }
-
-  .col-1 {
-    width: 8.33%;
-  }
-
-  .col-2 {
-    width: 16.66%;
-  }
-
-  .col-3 {
-    width: 25%;
-  }
-
-  .col-4 {
-    width: 33.33%;
-  }
-
-  .col-5 {
-    width: 41.66%;
-  }
-
-  .col-6 {
-    width: 50%;
-  }
-
-  .col-7 {
-    width: 58.33%;
-  }
-
-  .col-8 {
-    width: 66.66%;
-  }
-
-  .col-9 {
-    width: 75%;
-  }
-
-  .col-10 {
-    width: 83.33%;
-  }
-
-  .col-11 {
-    width: 91.66%;
-  }
-
-  .col-12 {
-    width: 100%;
-  }
-
   footer {
       background-color: #002A54;
   }
@@ -181,11 +103,18 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="container">
+                            <a class="btn col-12" href="history.php">
+                                
+                                History
+                            </a>
+                        </div>
+                        <div class="container">
                             <a class="btn btn-primary col-12" href="login.php">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
                         </div>
+                        
 
                     </div>
                 </li>
@@ -205,15 +134,15 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img class="img-fluid" src="images/carousel/men.jpg"
+                <img class="img-fluid" src="images/carousel/product1.jpg"
                     data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/woman.jpg"
+                <img class="img-fluid" src="images/carousel/product2.jpg"
                     data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/family.jpg"
+                <img class="img-fluid" src="images/carousel/product3.jpg"
                     data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
             </div>
         </div>
@@ -232,7 +161,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            hai
+            
         </div>
         <div class="col-6">
         </div>
@@ -261,7 +190,7 @@
                             <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
                             <br>
                             <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Beli</a>
-                            <a href="detail.php?id=<?php echo $perproduk['id_produk'];?>"
+                            <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
                                 class="btn btn-default">Detail</a>
                         </div>
                     </div>

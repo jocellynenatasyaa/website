@@ -13,6 +13,7 @@
 		$akun = $ambil->fetch_assoc();
 		$_SESSION['tbuser'] = $akun;
 		header("location: checkout.php");
+		header("location: home.php");
 	}else if($username == "admin" && $password == "21232f297a57a5a743894a0e4a801fc3"){
 		header("location:admin/index.php");
 	}
