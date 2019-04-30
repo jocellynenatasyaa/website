@@ -29,90 +29,11 @@
     <script src="js/main.js"></script>
 </head>
 <style>
-
-
-.container {
-    max-width: 100%;
-  }
-
-  .row {
-    margin-right: -15px;
-    margin-left: -15px;
-    margin: 0px;
-  }
-
-  .row-before, .row-after {
-    display : table;
-    content: "";
-  }
-
-  .row-after {
-    clear: both;
-  }
-
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-    float: left;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-sizing: border-box;
-    border: none;
-  }
-
-  .col-1 {
-    width: 8.33%;
-  }
-
-  .col-2 {
-    width: 16.66%;
-  }
-
-  .col-3 {
-    width: 25%;
-  }
-
-  .col-4 {
-    width: 33.33%;
-  }
-
-  .col-5 {
-    width: 41.66%;
-  }
-
-  .col-6 {
-    width: 50%;
-  }
-
-  .col-7 {
-    width: 58.33%;
-  }
-
-  .col-8 {
-    width: 66.66%;
-  }
-
-  .col-9 {
-    width: 75%;
-  }
-
-  .col-10 {
-    width: 83.33%;
-  }
-
-  .col-11 {
-    width: 91.66%;
-  }
-
-  .col-12 {
-    width: 100%;
-  }
-
-  footer {
-      background-color: #002A54;
-  }
- </style>
+    .footer {
+        background-color :  #002A54;
+        color : white;
+    }
+</style>
 
 <body class="bg-light">
     <!-- Navbar -->
@@ -142,7 +63,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search..." name="search">
                         <div class="input-group-append">
-                            <button class="btn btn-info" type="button">
+                            <button type="button" class="btn btn-primary">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
@@ -186,61 +107,93 @@
                                 Logout
                             </a>
                         </div>
-
                     </div>
                 </li>
-
             </ul>
         </div>
     </nav>
 
     <!-- carousel -->
-        <div id="ajaxContent">
-        <div style="margin-top:40px;" id="carouselId" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselId" data-slide-to="1"></li>
-            <li data-target="#carouselId" data-slide-to="2"></li>
-            <li data-target="#carouselId" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img class="img-fluid" src="images/carousel/men.jpg"
-                    data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/woman.jpg"
-                    data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/family.jpg"
-                    data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/carousel/2.jpg" alt="Men" width="100%">
+      <div class="carousel-caption">
+        <h3>Welcome to Aphrodite</h3>
+        <p>Enjoy your shopping!!</p>
+      </div>   
     </div>
-
-    <!-- flash sale -->
-
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            hai
-        </div>
-        <div class="col-6">
-        </div>
+    <div class="carousel-item">
+      <img src="images/carousel/1.jpg" alt="woman" width="100%">
+      <div class="carousel-caption">
+      <h3>Welcome to Aphrodite</h3>
+        <p>Enjoy your shopping!!</p>
+      </div>   
     </div>
+    <div class="carousel-item">
+      <img src="images/carousel/3.jpg" alt="family" width="100%">
+      <div class="carousel-caption">
+      <h3>Welcome to Aphrodite</h3>
+        <p>Enjoy your shopping!!</p>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
 </div>
-
-
-
+    <br>
+    <div class="row">
+            <div class="col-6">       
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            </div>
+            <div class="col-6">
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            </div>
+            </div>
+        </div>
     <!-- Content -->
     <section class="konten mt-3">
         <div class="container">
@@ -269,55 +222,97 @@
                 <?php 
                     } 
                 ?>
+                </div>
             </div>
         </div>
-    </section>        
+    </section>  
+    <br>
+    <br>
+    <br>
 
+            <div class="row">
+            <div class="col-6">       
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            </div>
+            <div class="col-6">
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            <div class="spinner-grow text-muted"></div>
+            <div class="spinner-grow text-primary"></div>
+            <div class="spinner-grow text-success"></div>
+            <div class="spinner-grow text-info"></div>
+            <div class="spinner-grow text-warning"></div>
+            <div class="spinner-grow text-danger"></div>
+            <div class="spinner-grow text-secondary"></div>
+            <div class="spinner-grow text-dark"></div>
+            <div class="spinner-grow text-light"></div>
+            </div>
+            </div>
         </div>
-        <hr>
-
-        <!-- Footer -->
-<footer class="page-footer font-small special-color-dark pt-4">
-
-<!-- Footer Elements -->
-<div class="container">
-
-  <!--Grid row-->
-  <div class="row">
-
-    <!--Grid column-->
-    <div class="col-md-6 mb-4">
-
-      <!-- Form -->
-      <img src="images/logo.png">
-      <!-- Form -->
-
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-md-6 mb-4">
-
-     
+        <br>
     
+          <div class="row">
+          <div class="col-12">
+          <div class="card bg-warning text-white">
+    <div class="card-body"><center><h2>Enjoy Free Delivery </h2> <h5><i>until 11 Sept' 2019</i></h5></center>
     </div>
-    <!--Grid column-->
-
   </div>
-  <!--Grid row-->
+          </div>
+          </div>
+          <br>
+          <!-- Flashsale  -->
+        <div class="row">
+            <div class="col-6">
+            <img src="images/flashsale2.jpg" alt="flashsale1">
+                </div>
+            <div class="col-6">
+                <img src="images/flashsale3.jpg" alt="flashsale1">
 
-</div>
-<!-- Footer Elements -->
+            </div>
+        </div>
+           <!-- flashsale -->
 
-<!-- Copyright -->
-<div class="footer-copyright text-center py-3">
-  <a href="https://ski.sch.id/new/smk-kristen-immanuel/"> SMK KRISTEN IMMANUEL PONTIANAK</a>
-</div>
-<!-- Copyright -->
 
-</footer>
-<!-- Footer -->
 
+          <!-- Footer -->
+        <hr>
+        <div class="footer">
+        <div class="media border p-3">
+    <div class="media-body">
+    <a href="https://ski.sch.id/new/smk-kristen-immanuel/"><h4>SMK KRISTEN IMMANUEL PONTIANAK </h4></a>
+      <p>Cerdas, Bijak, dan Bertanggung Jawab</p>      
+    </div>
+ <img src="images/smk.png" alt="smk" class="ml-3 mt-3" style="width:60px;">
+  </div>
+  <div>
+           <!-- footer -->
+
+      
+     
     
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
