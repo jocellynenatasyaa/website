@@ -124,6 +124,7 @@
     </nav>
 
     <!-- carousel -->
+<<<<<<< HEAD
         <div id="ajaxContent">
         <div style="margin-top:40px;" id="carouselId" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -170,6 +171,45 @@
 
 
 
+=======
+    <div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/carousel/2.jpg" alt="Men" width="100%">
+      <div class="carousel-caption">
+        <h3>Welcome to Aphrodite</h3>
+        <p>Enjoy your shopping!!</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="images/carousel/1.jpg" alt="woman" width="100%">
+      <div class="carousel-caption">
+      <h3>Welcome to Aphrodite</h3>
+        <p>Enjoy your shopping!!</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="images/carousel/3.jpg" alt="family" width="100%">
+      <div class="carousel-caption">
+      <h3>Welcome to Aphrodite</h3>
+        <p>Enjoy your shopping!!</p>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+    <br>
+>>>>>>> 5d43afd4917df041ef8d9adf14462459ac79a305
     <!-- Content -->
     <section class="konten mt-3">
         <div class="container">
@@ -202,6 +242,7 @@
         </div>
     </section>        
 
+<<<<<<< HEAD
         </div>
         <hr>
 
@@ -210,6 +251,17 @@
 
 <!-- Footer Elements -->
 <div class="container">
+=======
+          <div class="row">
+          <div class="col-12">
+          <div class="card bg-warning text-white">
+    <div class="card-body"><center><h2>Enjoy Free Delivery </h2> <h5><i>until 11 Sept' 2019</i></h5></center>
+    </div>
+  </div>
+          </div>
+          </div>
+          <br>
+>>>>>>> 5d43afd4917df041ef8d9adf14462459ac79a305
 
   <!--Grid row-->
   <div class="row">
