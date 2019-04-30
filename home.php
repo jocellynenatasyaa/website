@@ -151,49 +151,6 @@
   </a>
 </div>
     <br>
-    <div class="row">
-            <div class="col-6">       
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            </div>
-            <div class="col-6">
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            </div>
-            </div>
-        </div>
     <!-- Content -->
     <section class="konten mt-3">
         <div class="container">
@@ -230,51 +187,6 @@
     <br>
     <br>
 
-            <div class="row">
-            <div class="col-6">       
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            </div>
-            <div class="col-6">
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            <div class="spinner-grow text-muted"></div>
-            <div class="spinner-grow text-primary"></div>
-            <div class="spinner-grow text-success"></div>
-            <div class="spinner-grow text-info"></div>
-            <div class="spinner-grow text-warning"></div>
-            <div class="spinner-grow text-danger"></div>
-            <div class="spinner-grow text-secondary"></div>
-            <div class="spinner-grow text-dark"></div>
-            <div class="spinner-grow text-light"></div>
-            </div>
-            </div>
-        </div>
-        <br>
-    
           <div class="row">
           <div class="col-12">
           <div class="card bg-warning text-white">
@@ -284,18 +196,6 @@
           </div>
           </div>
           <br>
-          <!-- Flashsale  -->
-        <div class="row">
-            <div class="col-6">
-            <img src="images/flashsale2.jpg" alt="flashsale1">
-                </div>
-            <div class="col-6">
-                <img src="images/flashsale3.jpg" alt="flashsale1">
-
-            </div>
-        </div>
-           <!-- flashsale -->
-
 
 
           <!-- Footer -->
