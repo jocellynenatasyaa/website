@@ -111,43 +111,6 @@
         </div>
     </nav>
 
-    <!-- carousel -->
-        <div id="ajaxContent">
-        <div style="margin-top:40px;" id="carouselId" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselId" data-slide-to="1"></li>
-            <li data-target="#carouselId" data-slide-to="2"></li>
-            <li data-target="#carouselId" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img class="img-fluid" src="images/carousel/product1.jpg"
-                    data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product2.jpg"
-                    data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product3.jpg"
-                    data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product4.jpg"
-                    data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
     <!-- Content -->
     <section class="konten mt-3">
         <div class="container">
@@ -156,24 +119,50 @@
                 $ambil = $conn->query("SELECT * FROM pembelian JOIN tbuser ON pembelian.id_pelanggan=tbuser.username WHERE pembelian.id_pembelian='$_GET[id]'");
                 $detail = $ambil->fetch_assoc();
             ?>
+            <?php
+                $idpelangganyangbeli = $detail['id_pelanggan'];
+                $idpelangganyanglogin = $_SESSION['tbuser']['username'];
 
-            <strong><?php echo $detail['nama'];?></strong><br>
-            <p>
-                <?php echo $detail['telepon'];?> <br>
-                <?php echo $detail['email'];?>
-            </p>
-            <p>
-                <?php echo $detail['tanggal_pembelian'];?> <br>
-                <?php echo $detail['total_pembelian'];?>
-            </p>
+                if($idpelangganyangbeli!==$idpelangganyanglogin)
+                {
+                    echo "<script>You're not allowed to open others</script>";
+                    echo "<script>location='history.php'</script>";
+                    exit();
+                }
+            ?>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Pembelian</h3>
+                    <strong>No. Pembelian: <?php echo $detail['id_pembelian']?></strong><br>
+                    <p>
+                        Tanggal: <?php echo $detail['tanggal_pembelian'];?> <br>
+                        Total: <?php echo number_format($detail['total_pembelian']);?>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Pelanggan</h3>
+                    <strong><?php echo $detail['nama'];?></strong><br>
+                    <p>
+                        <?php echo $detail['telepon'];?> <br>
+                        <?php echo $detail['email'];?>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Pengiriman</h3>
+                    <strong><?php echo $detail['nama_kota'];?></strong><br>
+                    Ongkos Kirim: Rp. <?php echo number_format($detail['tarif'])?><br>
+                    Alamat: <?php echo $detail['alamat']?>
+                </div>
+            </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Product Name</th>
                         <th>Price</th>
+                        <th>Weight</th>
+                        <th>Quantity</th>
                         <th>Total</th>
-                        <th>Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -181,29 +170,44 @@
                         $nomor=1;
                     ?>
                     <?php 
-                        $sql = "SELECT * FROM pembelian_produk LEFT JOIN produk ON pembelian_produk.id_produk=produk.id_produk WHERE pembelian_produk.id_pembelian='$_GET[id]'";
+                        $totalbelanja=0;
+                        $sql = "SELECT * FROM pembelian_produk WHERE id_pembelian='$_GET[id]'";
                         $ambil = $conn->query($sql);
                     ?>
                     <?php
                         while($pecah = $ambil->fetch_assoc()){
+                            $jumlah = $pecah['jumlah'];
+                            $subharga = $pecah['harga']*$jumlah;
                     ?>
                 <tr>
                         <td><?php echo $nomor;?></td> 
-                        <td><?php echo $pecah['nama_produk'];?></td>
-                        <td><?php echo $pecah['harga_produk'];?></td>
+                        <td><?php echo $pecah['nama'];?></td>
+                        <td>Rp. <?php echo number_format($pecah['harga']);?></td>
+                        <td><?php echo $pecah['berat'];?> Gr.</td>
                         <td><?php echo $pecah['jumlah'];?></td>
-                        <td>
-                            <?php echo $pecah['harga_produk']*$pecah['jumlah'];?>
-                        </td>
+                        <td>Rp. <?php echo number_format($pecah['subharga']);?></td>
+                        
                     </tr>
                     <?php
                         $nomor++;
+                        $totalbelanja+=$subharga;
                     ?>
                     <?php
                         }
                     ?>
                 </tbody>
+                <tfoot>
+                    <th colspan="5">Total</th>
+                    <th>Rp. <?php echo number_format($detail['total_pembelian'])?></th>
+                </tfoot>
+                <tfoot>
+                        <th colspan="5">Subtotal</th>
+                        <th>Rp. <?php echo number_format($totalbelanja)?></th>
+                </tfoot>
             </table>
+            <?php
+                
+            ?>
             <div class="row">
                 <div class="col-md-7">
                     <div class="alert alert-info">

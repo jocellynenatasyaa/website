@@ -125,6 +125,7 @@ include 'koneksi.php';
         <?php
         $nomor=1;
         $totalbelanja=0;
+        
         foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
         $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
         $pecah = $ambil->fetch_assoc();
@@ -145,7 +146,7 @@ include 'koneksi.php';
       </tbody>
       <tfoot>
             <th colspan="4">Total</th>
-            <th>Rp. 385.000</th>
+            <th>Rp</th>
       </tfoot>
       <tfoot>
             <th colspan="4">Subtotal</th>
@@ -183,6 +184,10 @@ include 'koneksi.php';
                     </select>
             </div>
         </div>
+        <div class="form-group">
+                <label>Alamat Lengkap</label>
+                <textarea class="form-control" name="alamat" placeholder="Masukkan Alamat Lengkap (Beserta Kode Pos)"></textarea>
+            </div>
         <button class="btn btn-primary" name="checkout">Checkout</button>
     </form>
     <?php
@@ -191,22 +196,33 @@ include 'koneksi.php';
         $id_pelanggan = $_SESSION['tbuser']['username'];
         $id_ongkir = $_POST['id_ongkir'];
         $tanggal_pembelian = date("Y-m-d");
+        $alamat = $_POST['alamat'];
 
         $ambil = $conn->query("SELECT * FROM ongkir WHERE id_ongkir='$id_ongkir'");
         $arrayongkir = $ambil->fetch_assoc();
+        $nama_kota = $arrayongkir['nama_kota'];
         $tarif = $arrayongkir['tarif'];
 
         $total_pembelian = $totalbelanja + $tarif;
 
-        $conn->query("INSERT INTO pembelian(id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian)
-        VALUES('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian')");
+        $conn->query("INSERT INTO pembelian(id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian,nama_kota,tarif,alamat)
+        VALUES('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_kota','$tarif','$alamat')");
 
         $id_pembelian_barusan = $conn->insert_id;
     
         foreach($_SESSION['keranjang'] as $id_produk => $jumlah)
         {
-            $conn->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,jumlah)
-            VALUES('$id_pembelian_barusan','$id_produk','$jumlah')");
+            $ambil=$conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+            $perproduk = $ambil->fetch_assoc();
+
+            $nama = $perproduk['nama_produk'];
+            $harga = $perproduk['harga_produk'];
+            $berat = $perproduk['berat_produk'];
+
+            $subberat = $perproduk['berat_produk']*$jumlah;
+            $subharga = $perproduk['harga_produk']*$jumlah;
+            $conn->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,nama,harga,berat,subberat,subharga,jumlah)
+            VALUES('$id_pembelian_barusan','$id_produk','$nama','$harga','$berat','$subberat','$subharga','$jumlah')");
         }
         unset ($_SESSION['keranjang']);
         echo "<script>alert('pembelian sukses');</script>";
@@ -217,9 +233,5 @@ include 'koneksi.php';
   </div>
 </section>
 
-<pre>
-    <?php print_r($_SESSION["tbuser"]);?>
-    <?php print_r($_SESSION["keranjang"]);?>
-</pre>
 </body>
 </html>

@@ -29,11 +29,12 @@
     <script src="js/main.js"></script>
 </head>
 <style>
-    .footer {
-        background-color :  #002A54;
-        color : white;
-    }
-</style>
+
+
+  footer {
+      background-color: #002A54;
+  }
+ </style>
 
 <body class="bg-light">
     <!-- Navbar -->
@@ -63,7 +64,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search..." name="search">
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-primary">
+                            <button class="btn btn-info" type="button">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
@@ -102,18 +103,75 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="container">
+                            <a class="btn col-12" href="history.php">
+                                
+                                History
+                            </a>
+                        </div>
+                        <div class="container">
                             <a class="btn btn-primary col-12" href="login.php">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
                         </div>
+                        
+
                     </div>
                 </li>
+
             </ul>
         </div>
     </nav>
 
     <!-- carousel -->
+<<<<<<< HEAD
+        <div id="ajaxContent">
+        <div style="margin-top:40px;" id="carouselId" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselId" data-slide-to="1"></li>
+            <li data-target="#carouselId" data-slide-to="2"></li>
+            <li data-target="#carouselId" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img class="img-fluid" src="images/carousel/men.jpg"
+                    data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid" src="images/carousel/woman.jpg"
+                    data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid" src="images/carousel/family.jpg"
+                    data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- flash sale -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</div>
+
+
+
+=======
     <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -151,6 +209,7 @@
   </a>
 </div>
     <br>
+>>>>>>> 5d43afd4917df041ef8d9adf14462459ac79a305
     <!-- Content -->
     <section class="konten mt-3">
         <div class="container">
@@ -171,7 +230,7 @@
                             <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
                             <br>
                             <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Beli</a>
-                            <a href="detail.php?id=<?php echo $perproduk['id_produk'];?>"
+                            <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
                                 class="btn btn-default">Detail</a>
                         </div>
                     </div>
@@ -179,14 +238,20 @@
                 <?php 
                     } 
                 ?>
-                </div>
             </div>
         </div>
-    </section>  
-    <br>
-    <br>
-    <br>
+    </section>        
 
+<<<<<<< HEAD
+        </div>
+        <hr>
+
+        <!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+<!-- Footer Elements -->
+<div class="container">
+=======
           <div class="row">
           <div class="col-12">
           <div class="card bg-warning text-white">
@@ -196,23 +261,44 @@
           </div>
           </div>
           <br>
+>>>>>>> 5d43afd4917df041ef8d9adf14462459ac79a305
 
+  <!--Grid row-->
+  <div class="row">
 
-          <!-- Footer -->
-        <hr>
-        <div class="footer">
-        <div class="media border p-3">
-    <div class="media-body">
-    <a href="https://ski.sch.id/new/smk-kristen-immanuel/"><h4>SMK KRISTEN IMMANUEL PONTIANAK </h4></a>
-      <p>Cerdas, Bijak, dan Bertanggung Jawab</p>      
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+
+      <!-- Form -->
+      <img src="images/logo.png">
+      <!-- Form -->
+
     </div>
- <img src="images/smk.png" alt="smk" class="ml-3 mt-3" style="width:60px;">
-  </div>
-  <div>
-           <!-- footer -->
+    <!--Grid column-->
 
-      
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+
      
+    
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+</div>
+<!-- Footer Elements -->
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">
+  <a href="https://ski.sch.id/new/smk-kristen-immanuel/"> SMK KRISTEN IMMANUEL PONTIANAK</a>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
     
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
