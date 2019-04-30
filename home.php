@@ -134,15 +134,15 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img class="img-fluid" src="images/carousel/product1.jpg"
+                <img class="img-fluid" src="images/carousel/men.jpg"
                     data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product2.jpg"
+                <img class="img-fluid" src="images/carousel/woman.jpg"
                     data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/carousel/product3.jpg"
+                <img class="img-fluid" src="images/carousel/family.jpg"
                     data-src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
             </div>
         </div>

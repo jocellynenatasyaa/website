@@ -28,9 +28,10 @@ include 'koneksi.php';
     <script src="js/main.js"></script>
 </head>
 
+<body class="bg-light">
     <!-- Navbar -->
     <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
-        <a class="navbar-brand" href="#" onclick="loadLandingPage()">
+        <a class="navbar-brand" href="home.php">
             <img src="img/logo/logo_font_white.svg" style="height:23px;" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -40,27 +41,27 @@ include 'koneksi.php';
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto container-fluid justify-content-between">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+            <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+     Category
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="category_men.html">Men</a>
+      <a class="dropdown-item" href="category_woman.html">Woman</a>
+    </div>
+  </div>
+
                 <li class="col-12 col-lg-9">
+                <form action="search.php" method="GET">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Search..." name="search">
                         <div class="input-group-append">
-                            <button class="btn btn-info" type="button">
-                                <i class="fa fa-search" onclick="f_search()"></i>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa fa-search"></i>
                             </button>
                         </div>
                     </div>
+                </form>
                 </li>
                 <li class="nav-item">
                     <a href="cart.php" class="nav-link">
@@ -99,10 +100,8 @@ include 'koneksi.php';
                                 Logout
                             </a>
                         </div>
-
                     </div>
                 </li>
-
             </ul>
         </div>
     </nav>
