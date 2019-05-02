@@ -1,5 +1,7 @@
 <?php
     $semuadata=array();
+    $tglm = "-";
+    $tgls = "-";
     if (isset($_POST['kirim']))
     {
         $tglm = $_POST['tglm'];
@@ -9,14 +11,13 @@
         {
             $semuadata[]=$pecah;
         }
-        
     }
 ?>
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
-    <ul class="nav flex-column">
+        <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link active" href="index.php">
                 <i class="fas fa-home"></i>
                     Home
                 </a>
@@ -28,7 +29,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="index.php?halaman=transaction">
+                <a class="nav-link" href="index.php?halaman=transaction">
                 <i class="fas fa-hand-holding-usd"></i>
                     Transaction
                 </a>
@@ -40,7 +41,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="index.php?halaman=reports">
+                <i class="fas fa-file"></i>
                     Reports
                 </a>
             </li>
@@ -61,6 +63,8 @@
         <?php
             echo $_GET['halaman'];
         ?>
+        from 
+        <?php echo $tglm;?> untill <?php echo $tgls;?>
     </h2>
 
 <form method="post">
@@ -68,13 +72,13 @@
         <div class="col-md-5">
             <div class="form-group">
                 <label>Tanggal Mulai</label>
-                <input type="date" name="tglm" class="form-control">
+                <input type="date" name="tglm" class="form-control" value="<?php echo $tglm?>">
             </div>
         </div>
         <div class="col-md-5">
             <div class="form-group">
                 <label>Tanggal Selesai</label>
-                <input type="date" name="tgls" class="form-control">
+                <input type="date" name="tgls" class="form-control" echo="$tgls" value="<?php echo $tgls?>">
             </div>
         </div>
         <div class="col-md-2">
@@ -93,12 +97,23 @@
             </tr>
         </thead>
         <tbody>
+            <?php $total=0;
+            
+            foreach($semuadata as $key => $value):
+                $total+=$value['total_pembelian'];?>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $key+1;?></td>
+                <td><?php echo $value['nama']?></td>
+                <td><?php echo $value['tanggal_pembelian']?></td>
+                <td>Rp. <?php echo number_format($value['total_pembelian'])?></td>
+                <td><?php echo $value['status']?></td>
             </tr>
+            <?php endforeach ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4">Total</th>
+                <th>Rp. <?php echo number_format($total)?></th>
+            </tr>
+        </tfoot>
 </form>
