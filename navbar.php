@@ -60,8 +60,8 @@
        Category
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="category_men.html">Men</a>
-        <a class="dropdown-item" href="category_woman.html">Woman</a>
+        <a class="dropdown-item" href="category_men.php">Men</a>
+        <a class="dropdown-item" href="category_woman.php">Woman</a>
       </div>
     </div>
   
