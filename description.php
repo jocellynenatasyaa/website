@@ -24,6 +24,7 @@
             <form method="POST">
             <h2><?php echo $detail['nama_produk']?></h2>
             <h4>Rp. <?php echo number_format($detail['harga_produk']);?></h4>
+			<h5>Stok: <?php echo $detail['stok'];?></h5>
 					<div class="form-group">
 					    <div class="btn-group">
 							    <button type="button" class="btn btn-secondary">Select Size</button>
@@ -43,7 +44,7 @@
 				<label for="comment">Note:</label>
      				<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
                      <br>
-                     <input type="number" name="jumlah" min="1" class="form-control col-md-2" value="1">
+                     <input type="number" name="jumlah" min="1" max="<?php echo $detail['stok'];?>" class="form-control col-md-2" value="1">
                      <br>
 			    <button class="btn btn-primary" name="beli">Buy</button>
 			  </form>

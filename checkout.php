@@ -223,6 +223,8 @@ include 'koneksi.php';
             $subharga = $perproduk['harga_produk']*$jumlah;
             $conn->query("INSERT INTO pembelian_produk (id_pembelian,id_produk,nama,harga,berat,subberat,subharga,jumlah)
             VALUES('$id_pembelian_barusan','$id_produk','$nama','$harga','$berat','$subberat','$subharga','$jumlah')");
+        
+            $conn->query("UPDATE produk SET stok=stok-$jumlah WHERE id_produk='$id_produk'");
         }
         unset ($_SESSION['keranjang']);
         echo "<script>alert('pembelian sukses');</script>";

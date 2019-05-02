@@ -55,6 +55,7 @@
             <th>No</th>
             <th>Name</th>
             <th>Date</th>
+            <th>Status</th>
             <th>Total</th>
             <th>Action</th>
         </tr>
@@ -73,9 +74,13 @@
             <td><?php echo $nomor;?></td> 
             <td><?php echo $pecah['username'];?></td>
             <td><?php echo $pecah['tanggal_pembelian'];?></td>
+            <td><?php echo $pecah['status'];?></td>
             <td><?php echo $pecah['total_pembelian'];?></td>
             <td>
                 <a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian'];?>" class="btn-info btn">Detail</a>
+                <?php if ($pecah['status']=='Sudah Dibayar'):?>
+                <a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'];?>" class="btn btn-success">Lihat Pembayaran</a>
+                <?php endif ?>
             </td>
         </tr>
         <?php

@@ -1,6 +1,27 @@
 <?php
     session_start();
     include 'koneksi.php';
+
+    $idpem=$_GET['id'];
+    $ambil = $conn->query("SELECT * FROM pembayaran LEFT JOIN pembelian ON pembayaran.id_pembelian=pembelian.id_pembelian where pembelian.id_pembelian='$idpem'");
+    $detpem = $ambil->fetch_assoc();
+
+    if(empty($detpem))
+    {
+        echo "<script>alert('Your're not allowed);</script>";
+        echo "<script>location='history.php';</script>";
+        exit();
+    }
+
+    $id_pelanggan_beli = $detpem['id_pelanggan'];
+    $id_pelanggan_login = $_SESSION['tbuser']['username'];
+
+    if($id_pelanggan_login!==$id_pelanggan_beli)
+    {
+        echo "<script>alert('Your're not allowed);</script>";
+        echo "<script>location='history.php';</script>";
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -115,56 +136,34 @@
     </nav>
 <br><br><br>
 
-    <!--Content-->
-    <section class="riwayat">
-        <div class="container">
-            <h3>Riwayat Belanja <?php echo $_SESSION['tbuser']['nama']?></h3>
-
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
-                        <th>Option</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php 
-                    $nomor=1;
-                    $username = $_SESSION['tbuser']['username'];
-                    $ambil=$conn->query("SELECT * FROM pembelian WHERE id_pelanggan='$username'");
-                    while($pecah=$ambil->fetch_assoc()){
-                ?>
-                    <tr>
-                        <td><?php echo $nomor;?></td>
-                        <td><?php echo $pecah['tanggal_pembelian']?></td>
-                        <td>
-                            <?php echo $pecah['status']?>
-                            <br>
-                            <?php if (!empty($pecah['resi'])):?>
-                            Resi: <?php echo $pecah['resi'];?>
-                            <?php endif ?>
-                        </td>
-                        <td>Rp. <?php echo number_format($pecah['total_pembelian'])?></td>
-                        <td>
-                            <a href="nota.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-info">Nota</a>
-                            <?php if ($pecah['status']=='Belum Bayar'):?>
-                            <a href="pembayaran.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-success">Input Pembayaran</a>
-                            <?php else : ?>
-                            <a href="lihatpembayaran.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-warning">Lihat Pembayaran</a>
-                            <?php endif ?>
-                            
-                            
-                            
-                        </td>
-                    </tr>
-                    <?php
-                    $nomor++;
-                    }
-                    ?>
-                </tbody>
-            </table>
+<div class="container">
+  <h2>Lihat Pembayaran</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                        <tr>
+                            <th>Name</th>
+                            <td><?php echo $detpem['nama'];?></td>
+                        </tr>
+                        <tr>
+                            <th>Bank</th>
+                            <td><?php echo $detpem['bank'];?></td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td>Rp. <?php echo number_format($detpem['jumlah']);?></td>
+                        </tr>
+                        <tr>
+                            <th>Date</th>
+                            <td><?php echo $detpem['tanggal'];?></td>
+                        </tr>
+                
+                </table>
+            </div>
+            <div class="col-md-6">
+                <img width="500" src="bukti_pembayaran/<?php echo $detpem['bukti'];?>" alt="" class="img-responsive">
+            </div>
         </div>
-    </section>
+    </div>
+</body>
+</html>

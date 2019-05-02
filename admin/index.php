@@ -65,6 +65,14 @@
                         {
                             include 'ubahproduct.php';
                         }
+                        elseif($_GET['halaman']=="pembayaran")
+                        {
+                            include 'pembayaran.php';
+                        }
+                        elseif($_GET['halaman']=="reports")
+                        {
+                            include 'report.php';
+                        }
                         elseif($_GET['halaman']=="logout")
                         {
                             include 'logout.php';

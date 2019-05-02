@@ -49,16 +49,31 @@
     $ambil = $koneksi->query("SELECT * FROM pembelian JOIN tbuser ON pembelian.id_pelanggan=tbuser.username WHERE pembelian.id_pembelian='$_GET[id]'");
     $detail = $ambil->fetch_assoc();
 ?>
-
-<strong><?php echo $detail['nama'];?></strong><br>
-<p>
-    <?php echo $detail['telepon'];?> <br>
-    <?php echo $detail['email'];?>
-</p>
-<p>
-    <?php echo $detail['tanggal_pembelian'];?> <br>
-    <?php echo $detail['total_pembelian'];?>
-</p>
+<div class="row">
+    <div class="col-md-4"> 
+        <h3>Pembelian</h3>
+            <strong>No. Pembelian: <?php echo $detail['id_pembelian']?></strong><br>
+                <p>
+                    Tanggal: <?php echo $detail['tanggal_pembelian'];?> <br>
+                    Total: <?php echo number_format($detail['total_pembelian']);?> <br>
+                    Status: <?php echo $detail['status'];?>
+                </p>
+    </div>
+    <div class="col-md-4">
+        <h3>Pelanggan</h3>
+            <strong><?php echo $detail['nama'];?></strong><br>
+                <p>
+                    <?php echo $detail['telepon'];?> <br>
+                    <?php echo $detail['email'];?>
+                </p>
+    </div>
+    <div class="col-md-4">
+        <h3>Pengiriman</h3>
+            <strong><?php echo $detail['nama_kota'];?></strong><br>
+                Ongkos Kirim: Rp. <?php echo number_format($detail['tarif'])?><br>
+                Alamat: <?php echo $detail['alamat']?>
+    </div> 
+</div>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -83,10 +98,10 @@
     <tr>
             <td><?php echo $nomor;?></td> 
             <td><?php echo $pecah['nama_produk'];?></td>
-            <td><?php echo $pecah['harga_produk'];?></td>
+            <td>Rp. <?php echo number_format($pecah['harga_produk']);?></td>
             <td><?php echo $pecah['jumlah'];?></td>
             <td>
-                <?php echo $pecah['harga_produk']*$pecah['jumlah'];?>
+                Rp. <?php echo number_format($pecah['harga_produk']*$pecah['jumlah']);?>
             </td>
         </tr>
         <?php

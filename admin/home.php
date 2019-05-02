@@ -26,7 +26,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="index.php?halaman=reports">
+                <i class="fas fa-file"></i>
                     Reports
                 </a>
             </li>

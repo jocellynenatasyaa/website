@@ -1,6 +1,20 @@
 <?php
     session_start();
     include 'koneksi.php';
+
+    $idpem=$_GET['id'];
+    $ambil = $conn->query("SELECT * FROM pembelian where id_pembelian='$idpem'");
+    $detpem = $ambil->fetch_assoc();
+
+    $id_pelanggan_beli = $detpem['id_pelanggan'];
+    $id_pelanggan_login = $_SESSION['tbuser']['username'];
+
+    if($id_pelanggan_login!==$id_pelanggan_beli)
+    {
+        echo "<script>alert('Your're not allowed);</script>";
+        echo "<script>location='history.php';</script>";
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -115,56 +129,51 @@
     </nav>
 <br><br><br>
 
-    <!--Content-->
-    <section class="riwayat">
-        <div class="container">
-            <h3>Riwayat Belanja <?php echo $_SESSION['tbuser']['nama']?></h3>
+<div class="container">
+  <h2>Konfirmasi Pembayaran</h2>
+  <p>Kirim bukti pembayaran anda disini</p>
+  <div class="alert alert-info">Total tagihan anda <strong>Rp. <?php echo number_format($detpem['total_pembelian'])?></strong></div>
 
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
-                        <th>Option</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php 
-                    $nomor=1;
-                    $username = $_SESSION['tbuser']['username'];
-                    $ambil=$conn->query("SELECT * FROM pembelian WHERE id_pelanggan='$username'");
-                    while($pecah=$ambil->fetch_assoc()){
-                ?>
-                    <tr>
-                        <td><?php echo $nomor;?></td>
-                        <td><?php echo $pecah['tanggal_pembelian']?></td>
-                        <td>
-                            <?php echo $pecah['status']?>
-                            <br>
-                            <?php if (!empty($pecah['resi'])):?>
-                            Resi: <?php echo $pecah['resi'];?>
-                            <?php endif ?>
-                        </td>
-                        <td>Rp. <?php echo number_format($pecah['total_pembelian'])?></td>
-                        <td>
-                            <a href="nota.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-info">Nota</a>
-                            <?php if ($pecah['status']=='Belum Bayar'):?>
-                            <a href="pembayaran.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-success">Input Pembayaran</a>
-                            <?php else : ?>
-                            <a href="lihatpembayaran.php?id=<?php echo $pecah['id_pembelian']?>" class="btn btn-warning">Lihat Pembayaran</a>
-                            <?php endif ?>
-                            
-                            
-                            
-                        </td>
-                    </tr>
-                    <?php
-                    $nomor++;
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-    </section>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Nama Penyentor</label>
+        <input type="text" name="nama" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Bank</label>
+        <input type="text" name="bank" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Jumlah</label>
+        <input type="number" min="1" name="jumlah" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Foto Bukti</label>
+        <input type="file" name="bukti" class="form-control">
+    </div>
+    <button class="btn btn-primary" name="kirim">Kirim</button>
+  </form>
+</div>
+<?php
+    if (isset($_POST['kirim']))
+    {
+        $namabukti = $_FILES['bukti']['name'];
+        $lokasibukti = $_FILES['bukti']['tmp_name'];
+        $namafiks = date("YmdHis").$namabukti;
+        move_uploaded_file($lokasibukti, "bukti_pembayaran/$namafiks");
+
+        $nama = $_POST["nama"];
+        $bank = $_POST["bank"];
+        $jumlah = $_POST["jumlah"];
+        $tanggal = date("Y-m-d");
+
+        $conn->query("INSERT INTO pembayaran(id_pembelian,nama,bank,jumlah,tanggal,bukti)
+        VALUES('$idpem','$nama','$bank','$jumlah','$tanggal','$namafiks')");
+
+        $conn->query("UPDATE pembelian SET status='Sudah Dibayar' WHERE id_pembelian='$idpem'");
+        echo "<script>alert('Konfirmasi Pembayaran Sedang di proses')</script>";
+        echo "<script>location='history.php';</script>";
+    }
+?>
+</body>
+</html>
