@@ -25,15 +25,15 @@
             ?>
             <div class="row">
                 <div class="col-md-4">
-                    <h3>Pembelian</h3>
-                    <strong>No. Pembelian: <?php echo $detail['id_pembelian']?></strong><br>
+                    <h3>Purchase</h3>
+                    <strong>Purchase Number: <?php echo $detail['id_pembelian']?></strong><br>
                     <p>
-                        Tanggal: <?php echo $detail['tanggal_pembelian'];?> <br>
-                        Total: <?php echo number_format($detail['total_pembelian']);?>
+                        Date : <?php echo $detail['tanggal_pembelian'];?> <br>
+                        Total : <?php echo number_format($detail['total_pembelian']);?>
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <h3>Pelanggan</h3>
+                    <h3>Customer</h3>
                     <strong><?php echo $detail['nama'];?></strong><br>
                     <p>
                         <?php echo $detail['telepon'];?> <br>
@@ -41,21 +41,21 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <h3>Pengiriman</h3>
+                    <h3>Delivery</h3>
                     <strong><?php echo $detail['nama_kota'];?></strong><br>
-                    Ongkos Kirim: Rp. <?php echo number_format($detail['tarif'])?><br>
-                    Alamat: <?php echo $detail['alamat']?>
+                    Postage : Rp. <?php echo number_format($detail['tarif'])?><br>
+                    Address : <?php echo $detail['alamat']?>
                 </div>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>Number</th>
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Weight</th>
                         <th>Quantity</th>
-                        <th>Total</th>
+                        <th>Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -90,11 +90,11 @@
                     ?>
                 </tbody>
                 <tfoot>
-                    <th colspan="5">Total</th>
+                    <th colspan="5">Subtotal</th>
                     <th>Rp. <?php echo number_format($detail['total_pembelian'])?></th>
                 </tfoot>
                 <tfoot>
-                        <th colspan="5">Subtotal</th>
+                        <th colspan="5">Total</th>
                         <th>Rp. <?php echo number_format($totalbelanja)?></th>
                 </tfoot>
             </table>

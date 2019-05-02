@@ -27,20 +27,20 @@
 <br><br><br>
 
 <div class="container">
-  <h2>Lihat Pembayaran</h2>
+  <h2>Payment</h2>
         <div class="row">
             <div class="col-md-6">
                 <table class="table table-bordered">
                         <tr>
-                            <th>Name</th>
+                            <th>Card Holder's Name</th>
                             <td><?php echo $detpem['nama'];?></td>
                         </tr>
                         <tr>
-                            <th>Bank</th>
+                            <th>Card</th>
                             <td><?php echo $detpem['bank'];?></td>
                         </tr>
                         <tr>
-                            <th>Total</th>
+                            <th>Charge for</th>
                             <td>Rp. <?php echo number_format($detpem['jumlah']);?></td>
                         </tr>
                         <tr>

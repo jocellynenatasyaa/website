@@ -17,34 +17,59 @@
         exit();
     }
 ?>
-<br><br><br>
+<div class="col-md-6 offset-md-3">
+    <span class="anchor" id="formPayment"></span>
+    <hr class="my-5">
 
-<div class="container">
-  <h2>Konfirmasi Pembayaran</h2>
-  <p>Kirim bukti pembayaran anda disini</p>
-  <div class="alert alert-info">Total tagihan anda <strong>Rp. <?php echo number_format($detpem['total_pembelian'])?></strong></div>
+    <!-- form card cc payment -->
+    <div class="card card-outline-secondary">
+        <div class="card-body">
+            <h3 class="text-center">Credit Card Payment</h3>
+            <hr>
+            <div class="alert alert-info">Must Pay <strong>Rp.
+                    <?php echo number_format($detpem['total_pembelian'])?></strong></div>
 
-  <form method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-        <label>Nama Penyentor</label>
-        <input type="text" name="nama" class="form-control">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="cc_name">Card Holder's Name</label>
+                    <input type="text" name="nama" class="form-control" id="cc_name" pattern="\w+ \w+.*"
+                        title="First and last name" required="required">
+                </div>
+                <div class="form-group">
+                    <label>Card</label>
+                    <input type="text" name="bank" class="form-control" autocomplete="off" maxlength="20" pattern="\w+"
+                        title="Bank" required="required">
+
+                </div>
+                <div class="row">
+                    <label class="col-md-12">Amount</label>
+                </div>
+                <div class="form-inline">
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text">Rp</span></div>
+                        <input type="number" min="1" name="jumlah" class="form-control text-right"
+                            id="exampleInputAmount" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Reception</label>
+                    <input type="file" name="bukti" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <hr>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <button type="reset" class="btn btn-default btn-lg btn-block">Cancel</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" name="kirim" class="btn btn-primary btn-lg btn-block">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Bank</label>
-        <input type="text" name="bank" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Jumlah</label>
-        <input type="number" min="1" name="jumlah" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Foto Bukti</label>
-        <input type="file" name="bukti" class="form-control">
-    </div>
-    <button class="btn btn-primary" name="kirim">Kirim</button>
-  </form>
-</div>
-<?php
+
+
+    <?php
     if (isset($_POST['kirim']))
     {
         $namabukti = $_FILES['bukti']['name'];
@@ -61,9 +86,10 @@
         VALUES('$idpem','$nama','$bank','$jumlah','$tanggal','$namafiks')");
 
         $conn->query("UPDATE pembelian SET status='Sudah Dibayar' WHERE id_pembelian='$idpem'");
-        echo "<script>alert('Konfirmasi Pembayaran Sedang di proses')</script>";
+        echo "<script>alert('Payment Confirmation is being processed.')</script>";
         echo "<script>location='history.php';</script>";
     }
 ?>
-</body>
-</html>
+    </body>
+
+    </html>

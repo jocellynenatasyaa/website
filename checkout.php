@@ -4,18 +4,25 @@ include 'koneksi.php';
 include 'navbar.php';
 ?>
 
-    <section class="konten">
-  <div class="container">
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+<section class="konten">
+  <div class="container" style="margin-top:75px;">
     <h1>Checkout</h1>
     <hr>
-    <table class="table table-bordered">
+    <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>No</th>
-          <th>Product</th>
+          <th>Number</th>
+          <th>Product Name</th>
           <th>Price</th>
           <th>Quantity</th>
-          <th>Total</th>
+          <th>Amount</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -29,63 +36,64 @@ include 'navbar.php';
         $subharga = $pecah['harga_produk']*$jumlah;
         ?>
         <tr>
-            <td><?php echo $nomor;?></td>
-            <td><?php echo $pecah['nama_produk'];?></td>
-            <td>Rp.<?php echo number_format($pecah['harga_produk']);?></td>
-            <td><?php echo $jumlah;?></td>
-            <td>Rp. <?php echo number_format($subharga);?></td>
+          <td><?php echo $nomor;?></td>
+          <td><?php echo $pecah['nama_produk'];?></td>
+          <td>Rp.<?php echo number_format($pecah['harga_produk']);?></td>
+          <td><?php echo $jumlah;?></td>
+          <td>Rp. <?php echo number_format($subharga);?></td>
         </tr>
         <?php
         $nomor++;
         $totalbelanja+=$subharga;
         endforeach
         ?>
+
+        
       </tbody>
-      <tfoot>
-            <th colspan="4">Total</th>
-            <th>Rp</th>
-      </tfoot>
-      <tfoot>
-            <th colspan="4">Subtotal</th>
-            <th>Rp. <?php echo number_format($totalbelanja)?></th>
-      </tfoot>
     </table>
-    <form method="POST">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
-                <input type="text" readonly value="<?php echo $_SESSION["tbuser"]['nama']?>" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                <input type="text" readonly value="<?php echo $_SESSION["tbuser"]['telepon']?>" class="form-control">
-                </div>
-            </div>
-            <div class="col-md-4">
-                
-                    <select name="id_ongkir" class="form-control">
-                        <option value="">Pilihan Pengiriman</option>
-                        <?php
+    <div class="pull-right">
+        <div class="span">
+          <div class="alert alert-success">
+              <i class="icon-credit-card icon-large"></i>&nbsp;Total:&nbsp;Rp. <?php echo number_format($totalbelanja)?></div>
+        </div>
+      </div>
+    <form method="POST" style="margin-top:100px;">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" readonly value="<?php echo $_SESSION["tbuser"]['nama']?>" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" readonly value="<?php echo $_SESSION["tbuser"]['telepon']?>" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+
+          <select name="id_ongkir" class="form-control">
+            <option value="">Shipping Service</option>
+            <?php
                             $ambil = $conn->query("SELECT * FROM ongkir");
                             while($perongkir = $ambil->fetch_assoc())
                             {
                                 ?>
-                                <option value="<?php echo $perongkir['id_ongkir']?>">
-                                <?php echo $perongkir['nama_kota']?> -
-                                Rp. <?php echo number_format($perongkir['tarif'])?>
-                                </option>
-                        <?php
+            <option value="<?php echo $perongkir['id_ongkir']?>">
+              <?php echo $perongkir['nama_kota']?> -
+              Rp. <?php echo number_format($perongkir['tarif'])?>
+            </option>
+            <?php
                             }
                         ?>
-                    </select>
-            </div>
+          </select>
         </div>
-        <div class="form-group">
-                <label>Alamat Lengkap</label>
-                <textarea class="form-control" name="alamat" placeholder="Masukkan Alamat Lengkap (Beserta Kode Pos)"></textarea>
-            </div>
-        <button class="btn btn-primary" name="checkout">Checkout</button>
+      </div>
+      <div class="form-group">
+        <label>Complete Address</label>
+        <textarea class="form-control" name="alamat"
+          placeholder="Enter the full address and postal code"></textarea>
+      </div>
+      <button class="btn btn-primary" name="checkout">Checkout</button>
     </form>
     <?php
     if(isset($_POST['checkout']))
@@ -124,13 +132,14 @@ include 'navbar.php';
             $conn->query("UPDATE produk SET stok=stok-$jumlah WHERE id_produk='$id_produk'");
         }
         unset ($_SESSION['keranjang']);
-        echo "<script>alert('pembelian sukses');</script>";
+        echo "<script>alert('Purchase was successful.');</script>";
         echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
     }
     ?>
-    
+
   </div>
 </section>
 
 </body>
+
 </html>

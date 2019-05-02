@@ -245,7 +245,7 @@ include 'koneksi.php';
     </style>
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
@@ -255,97 +255,96 @@ include 'koneksi.php';
     </script>
 </head>
 <style>
-
-
-  .footer {
-      background-color: #002A54;
-      color :white;
-  }
- </style>
+    .footer {
+        background-color: #002A54;
+        color: white;
+    }
+</style>
 
 <body class="bg-light">
-      <!-- Navbar -->
-      <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
-          <a class="navbar-brand" href="home.php">
-              <img src="img/logo/logo_font_white.svg" style="height:23px;" alt="">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto container-fluid justify-content-between">
-              <div class="dropdown">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-       Category
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="category_men.html">Men</a>
-        <a class="dropdown-item" href="category_woman.html">Woman</a>
-      </div>
-    </div>
-  
-                  <li class="col-12 col-lg-9">
-                  <form action="search.php" method="GET">
-                      <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search..." name="search">
-                          <div class="input-group-append">
-                              <button type="button" class="btn btn-primary">
-                                  <i class="fa fa-search"></i>
-                              </button>
-                          </div>
-                      </div>
-                  </form>
-                  </li>
-                  <li class="nav-item">
-                      <a href="cart.php" class="nav-link">
-                          <i class="fas fa-shopping-cart"></i>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="nav-link">
-                          <i class="fas fa-bell"></i>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="chatting.php" class="nav-link">
-                          <i class="fas fa-envelope"></i>
-                      </a>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#" id="navbarDropdown" role="button"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-user"></i>
-                          <?php
+    <!-- Navbar -->
+    <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-luxury-blue text-white">
+        <a class="navbar-brand" href="home.php">
+            <img src="img/logo/logo_font_white.svg" style="height:23px;" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto container-fluid justify-content-between">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Category
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="category_men.html">Men</a>
+                        <a class="dropdown-item" href="category_woman.html">Woman</a>
+                    </div>
+                </div>
+
+                <li class="col-12 col-lg-9">
+                    <form action="search.php" method="GET">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search..." name="search">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a href="cart.php" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="chatting.php" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white text-capitalize text-center" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                        <?php
                                   echo $_SESSION['username'];
                               ?>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a href="#" class="dropdown-item text-center text-capitalize">
-                          <i class="fas fa-user"></i>
-                              <?php
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a href="#" class="dropdown-item text-center text-capitalize">
+                            <i class="fas fa-user"></i>
+                            <?php
                                   echo $_SESSION['username'];
                               ?>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <div class="container">
-                              <a class="btn col-12" href="history.php">
-                                  History
-                              </a>
-                          </div>
-                          <div class="dropdown-divider"></div>
-                          <div class="container">
-                              <a class="btn btn-primary col-12" href="login.php">
-                                  <i class="fas fa-sign-out-alt"></i>
-                                  Logout
-                              </a>
-                          </div>
-                      </div>
-                  </li>
-              </ul>
-          </div>
-      </nav>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <div class="container">
+                            <a class="btn col-12" href="history.php">
+                                History
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="container">
+                            <a class="btn btn-primary col-12" href="login.php">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="konten" style="margin-top:75px;">
         <div class="container">
@@ -373,7 +372,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat, Presentasi sudah dekat. 
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -385,7 +384,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat, Presentasi sudah dekat.
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -397,7 +396,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat Presentasi sudah dekat.
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -409,7 +408,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat, Presentasi sudah dekat.
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -421,7 +420,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat, Presentasi sudah dekat.
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -433,7 +432,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat, Presentasi sudah dekat.
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -445,7 +444,7 @@ include 'koneksi.php';
                                     <div class="chat_ib">
                                         <h5>Lilian Liwanto <span class="chat_date">Apr 30</span></h5>
                                         <p>
-                                            Semangat, Presentasi sudah dekat.
+                                            Passion, it's nearing the presentation time.
                                         </p>
                                     </div>
                                 </div>
@@ -460,7 +459,7 @@ include 'koneksi.php';
                                 <div class="received_msg">
                                     <div class="received_withd_msg">
                                         <p>
-                                            Masih ada masalah Lilian, tolong diperbaiki dan diperjelas.
+                                            There are still Lilian problems, please correct and clarify.
                                         </p>
                                         <span class="time_date"> 11:01 AM | Apr 30</span>
                                     </div>
@@ -469,7 +468,7 @@ include 'koneksi.php';
                             <div class="outgoing_msg">
                                 <div class="sent_msg">
                                     <p>
-                                        Sudah aku kerjakan, cuma belum aku committ hehe
+                                        I've done it, it's just that I haven't committed it, HAHAHAHA
                                     </p>
                                     <span class="time_date"> 11:01 AM | Apr 30</span>
                                 </div>
@@ -480,7 +479,7 @@ include 'koneksi.php';
                                 <div class="received_msg">
                                     <div class="received_withd_msg">
                                         <p>
-                                            Dibagian pengiriman kolom alamat dan harga tidak sesuai.
+                                            In the Shipping section the address column and price do not match.
                                         </p>
                                         <span class="time_date"> 07:22 AM | Yesterday</span>
                                     </div>
@@ -488,7 +487,9 @@ include 'koneksi.php';
                             </div>
                             <div class="outgoing_msg">
                                 <div class="sent_msg">
-                                    <p>Iya, sudah coba push.</p>
+                                    <p>
+                                        Yes, I have tried to push.
+                                    </p>
                                     <span class="time_date"> 09:20 AM | Today</span>
                                 </div>
                             </div>
@@ -497,7 +498,9 @@ include 'koneksi.php';
                                         src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                                 <div class="received_msg">
                                     <div class="received_withd_msg">
-                                        <p>Semangat, Presentasi sudah dekat.</p>
+                                        <p>
+                                            Passion, it's nearing the presentation time.
+                                        </p>
                                         <span class="time_date"> 06:02 PM | Today</span>
                                     </div>
                                 </div>
