@@ -92,14 +92,14 @@ include 'navbar.php';
 
     .profile-work {
         padding: 14%;
-        margin-top: -15%;
+        margin-top: 0%;
     }
 
     .profile-work p {
         font-size: 12px;
         color: #818182;
         font-weight: 600;
-        margin-top: 10%;
+        margin-top: 0%;
     }
 
     .profile-work a {
@@ -140,12 +140,8 @@ include 'navbar.php';
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5>
-                            Lilian Liwanto
+                        <?php echo $_SESSION["tbuser"]['nama']?>
                         </h5>
-                        <h6>
-                            Student
-                        </h6>
-                        <p class="proile-rating">RANKINGS : <span>9/10</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -157,35 +153,17 @@ include 'navbar.php';
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-work">
-                        <p>WORK LINK</p>
-                        <a href="">Website Link</a><br />
-                        <a href="">Bootsnipp Profile</a><br />
-                        <a href="">Bootply Profile</a>
-                        <p>SKILLS</p>
-                        <a href="">Web Designer</a><br />
-                        <a href="">Web Developer</a><br />
-                        <a href="">WordPress</a><br />
-                        <a href="">WooCommerce</a><br />
-                        <a href="">PHP, .Net</a><br />
-                    </div>
-                </div>
+                    <div class="row">
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
+                                
                                 <div class="col-md-6">
                                     <label>User Id</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>lilianliwanto</p>
+                                    <p><?php echo $_SESSION["tbuser"]['username']?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -193,7 +171,7 @@ include 'navbar.php';
                                     <label>Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Lilian Liwanto</p>
+                                    <p><?php echo $_SESSION["tbuser"]['nama']?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -201,7 +179,7 @@ include 'navbar.php';
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>77lilianliwanto@gmail.com</p>
+                                    <p><?php echo $_SESSION["tbuser"]['email']?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -209,68 +187,43 @@ include 'navbar.php';
                                     <label>Phone</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>123 456 7890</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Profession</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Student</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Experience</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Hourly Rate</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>100k/hr</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Total Projects</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>230</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>English Level</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Availability</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>6 months</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label>Your Bio</label><br />
-                                    <a href="#">Your detail description</a>
+                                    <p><?php echo $_SESSION["tbuser"]['telepon']?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                </div>
+            </div>
+            <div class="row">
+                <?php
+                 include 'koneksi.php';
+                    $ambil = $conn->query("SELECT * FROM produk");
+                    while ($perproduk = $ambil->fetch_assoc()){
+                ?>
+                <div class="col-md-3">
+                    <div class="card">
+                        <?php
+                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
+                ?>
+                        <div class="card-body">
+                            <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
+                            <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
+                            <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
+                            <br>
+                            <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Buy</a>
+                            <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
+                                class="btn btn-default">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <?php 
+                    } 
+                ?>
             </div>
         </form>
     </div>

@@ -101,7 +101,7 @@
                               ?>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a href="#" class="dropdown-item text-center text-capitalize">
+                          <a href="profile.php" class="dropdown-item text-center text-capitalize">
                           <i class="fas fa-user"></i>
                               <?php
                                   echo $_SESSION['username'];
