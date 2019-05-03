@@ -78,13 +78,13 @@
                   </form>
                   </li>
                   <li class="nav-item">
-                      <a href="cart.php" class="nav-link">
-                          <i class="fas fa-shopping-cart"></i>
+                      <a href="wishlist.php" class="nav-link">
+                          <i class="fas fa-heart"></i>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link">
-                          <i class="fas fa-bell"></i>
+                      <a href="cart.php" class="nav-link">
+                          <i class="fas fa-shopping-cart"></i>
                       </a>
                   </li>
                   <li class="nav-item">
