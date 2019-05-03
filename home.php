@@ -123,10 +123,10 @@
                 <a href="https://ski.sch.id/new/smk-kristen-immanuel/">
                     <h4> SMK KRISTEN IMMANUEL PONTIANAK </h4>
                 </a>
-                <p>Jl. Letjen Sutoyo</p>
-                <p>Telp: 0561 – 737921</p>
-                <p>HP: 085246458087</p>
-                <p>Pontianak 78121</p>
+                <p>Smart, Wise, and Accountable</p>
+                <br><br>
+                <p>Letnan Jendral Sutoyo Street, Parit Tokaya, South Pontianak 
+                <br>Pontianak City, West Kalimantan 78113</p>
             </div>
             <img src="images/smk.png" alt="smk" class="ml-3 mt-5" style="width:100px;">
         </div>
