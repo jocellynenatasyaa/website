@@ -25,6 +25,78 @@
         .dropdown-toggle:after {
             content: none
         }
+        .bg-footer p{
+            color:white;
+        }
+        .bg-footer {
+            background-color: #002A54;
+            padding: 50px 0 30px;
+        }
+        .footer-heading {
+            letter-spacing: 2px;
+        }
+
+        .footer-link a {
+            color: white;
+            line-height: 40px;
+            font-size: 14px;
+            transition: all 0.5s;
+        }
+
+        .footer-link a:hover {
+            color: #1bbc9b;
+        }
+
+        .contact-info {
+            color: white;
+            font-size: 14px;
+        }
+
+        .footer-social-icon {
+            font-size: 15px;
+            height: 34px;
+            width: 34px;
+            line-height: 34px;
+            border-radius: 3px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .facebook {
+            background-color: #4e71a8;
+            color: #ffffff;
+        }
+
+        .twitter {
+            background-color: #55acee;
+            color: #ffffff;
+        }
+
+        .google {
+            background-color: #d6492f;
+            color: #ffffff;
+        }
+
+        .footer-alt {
+            color: white;
+        }
+
+        .footer-heading {
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-heading:after {
+            content: '';
+            width: 25px;
+            border-bottom: 1px solid #FFF;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: block;
+            border-bottom: 1px solid #1bbc9b;
+        }
+
     </style>
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -42,10 +114,12 @@
         background-color: #002A54;
         color: white;
     }
+    .carousel-inner{
+        height: 100vh;
+    }
 </style>
 
 <body class="bg-light">
-
     <!-- carousel -->
     <div id="demo" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators">
@@ -115,24 +189,58 @@
             </div>
         </div>
     </section>
-    <!-- Footer -->
-    <hr>
-    <div class="footer">
-        <div class="media border p-4">
-            <div class="media-body">
-                <a href="https://ski.sch.id/new/smk-kristen-immanuel/">
-                    <h4> SMK KRISTEN IMMANUEL PONTIANAK </h4>
-                </a>
-                <h5>Created By :</h5>
-                <p>Erick<br>
-                Jocellyne Natasya<br>
-                Lilian Liwanto<br>
-                Stevanny Anjelika</p>
+
+     <!-- footer -->
+
+     <footer class="section bg-footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="https://ski.sch.id/new/smk-kristen-immanuel/">
+                        <h4 style="font-size:2rem" class="display-4"> SMK KRISTEN IMMANUEL PONTIANAK </h4>
+                    </a>
+                    <p>Smart, Wise, and Accountable</p>
+                    <br><br>
+                    <p>Letnan Jendral Sutoyo Street, Parit Tokaya, South Pontianak 
+                    <br>Pontianak City, West Kalimantan 78113</p>
+                    </div>
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                        <ul class="list-unstyled footer-link mt-4">
+                            <li><a href="">Sign Up </a></li>
+                            <li><a href="">Login</a></li>
+                            <li><a href="">Terms of Services</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
+                        <p class="contact-info">0812 5015 0667</p>
+                        <p class="contact-info">aphrodite@gmail.com</p>
+                        <div class="mt-5">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i class="fab facebook footer-social-icon fa-facebook-f"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab twitter footer-social-icon fa-twitter"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab google footer-social-icon fa-google"></i></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 text-center">
+                    <img class="img-fluid" src="images/smk.png" alt="smkkristenimmanuellogo">
+                </div>
+
             </div>
-            <img src="images/smk.png" alt="smk" class="ml-3 mt-5" style="width:100px;">
         </div>
-        <div>
-            <!-- footer -->
+
+        <div class="text-center mt-5">
+            <p class="footer-alt mb-0 f-14">2019 © Aphrodite, All Rights Reserved</p>
+        </div>
+    </footer>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
