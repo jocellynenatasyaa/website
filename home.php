@@ -42,10 +42,12 @@
         background-color: #002A54;
         color: white;
     }
+    .carousel-inner{
+        height: 100vh;
+    }
 </style>
 
 <body class="bg-light">
-
     <!-- carousel -->
     <div id="demo" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators">
