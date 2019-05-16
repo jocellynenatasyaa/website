@@ -65,12 +65,12 @@
       </div>
     </div>
   
-                  <li class="col-12 col-lg-9">
-                  <form action="search.php" method="GET">
-                      <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search..." name="search">
-                          <div class="input-group-append">
-                              <button type="button" class="btn btn-primary">
+                <li class="col-12 col-lg-9">
+                <form action="search.php" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." name="search">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary">
                                   <i class="fa fa-search"></i>
                               </button>
                           </div>

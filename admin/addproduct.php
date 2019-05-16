@@ -46,7 +46,7 @@
 
 <h2 class="display-4 text-capitalize">
         Add Product
-    </h2>
+</h2>
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label>Name</label>
@@ -59,6 +59,23 @@
     <div class="form-group">
         <label>Weight (Gr)</label>
         <input type="number" class="form-control" name="berat">
+    </div>
+    <div class="form-group">
+        <label>Stock</label>
+        <input type="number" class="form-control" name="stok" min="1">
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        <?php
+            
+            $query ="SELECT * FROM kategori";
+            $result = mysqli_query($koneksi,$query);
+        ?>
+        <select name="kategori">
+        <?php while($data = mysqli_fetch_assoc($result) ){?>
+            <option value="<?php echo $data['nama'];?>"><?php echo $data['nama'];?></option>
+        <?php } ?>
+        </select>
     </div>
     <div class="form-group">
         <label>Description</label>
@@ -96,8 +113,8 @@ if (isset($_POST['save']))
 
     $img = $_FILES['foto']['tmp_name'];
     $image = addslashes(file_get_contents($img));
-    $koneksi->query("INSERT INTO produk(nama_produk, harga_produk, berat_produk, foto_produk, deskripsi_produk) 
-    VALUES('$_POST[nama]', '$_POST[harga]', '$_POST[berat]', '$image', '$_POST[deskripsi]')");
+    $koneksi->query("INSERT INTO produk(nama_produk, harga_produk, berat_produk, foto_produk, deskripsi_produk, stok, kategori) 
+    VALUES('$_POST[nama]', '$_POST[harga]', '$_POST[berat]', '$image', '$_POST[deskripsi]','$_POST[stok]','$_POST[kategori]')");
     echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=product&toast=1&msg=added'>";
 }
 ?>

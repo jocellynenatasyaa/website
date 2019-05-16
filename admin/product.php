@@ -2,13 +2,13 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="index.php">
+                <a class="nav-link" href="index.php">
                 <i class="fas fa-home"></i>
                     Home
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=product">
+                <a class="nav-link active" href="index.php?halaman=product">
                 <i class="fas fa-tshirt"></i>
                     Product
                 </a>
@@ -104,6 +104,8 @@ error_reporting(0);
                 <th>Price</th>
                 <th>Weight</th>
                 <th>Photo</th>
+                <th>Stock</th>
+                <th>Category</th>
                 <th>Description</th>
                 <th>Action</th>
             </tr>
@@ -126,8 +128,10 @@ error_reporting(0);
                 <td style="max-width:40px;max-height:40px">
                     <?php
                     echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $pecah['foto_produk'] ).'"/>';
-                ?>
+                    ?>
                 </td>
+                <td><?php echo $pecah['stok'];?></td>
+                <td><?php echo $pecah['kategori'];?></td>
                 <td><?php echo $pecah['deskripsi_produk'];?></td>
                 <td>
                 <a href="index.php?halaman=ubahproduct&id=<?php echo $pecah['id_produk'];?>"

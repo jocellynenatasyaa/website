@@ -135,12 +135,19 @@ include 'navbar.php';
                             Change Photo
                             <input type="file" name="file" />
                         </div>
+                        <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                        </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5>
-                        <?php echo $_SESSION["tbuser"]['nama']?>
+                        <?php echo $_SESSION["tbuser"]['nama']?> 
                         </h5>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -154,7 +161,7 @@ include 'navbar.php';
                         </ul>
                     </div>
                     <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
@@ -191,40 +198,44 @@ include 'navbar.php';
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-                </div>
-            </div>
-            <div class="row">
-                <?php
-                 include 'koneksi.php';
-                    $ambil = $conn->query("SELECT * FROM produk");
-                    while ($perproduk = $ambil->fetch_assoc()){
-                ?>
-                <div class="col-md-3">
-                    <div class="card">
-                        <?php
-                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
-                ?>
-                        <div class="card-body">
-                            <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
-                            <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
-                            <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
-                            <br>
-                            <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Buy</a>
-                            <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
-                                class="btn btn-default">Detail</a>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                            <?php
+                            include 'koneksi.php';
+                            $username = $_SESSION['username'];
+                                $ambil = $conn->query("SELECT * FROM produk WHERE post='$username'");
+                                while ($perproduk = $ambil->fetch_assoc()){
+                            ?>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <?php
+                                echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
+                            ?>
+                                    <div class="card-body">
+                                        <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
+                                        <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
+                                        <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
+                                        <br>
+                                        <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Buy</a>
+                                        <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
+                                            class="btn btn-default">Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php 
+                                } 
+                            ?>
+                        </div>
+                            
                         </div>
                     </div>
                 </div>
-                <?php 
-                    } 
-                ?>
+                
             </div>
+            
+                </div>
+            </div>
+            
         </form>
     </div>
 </body>

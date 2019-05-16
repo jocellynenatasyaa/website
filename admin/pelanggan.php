@@ -2,7 +2,7 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="index.php">
+                <a class="nav-link" href="index.php">
                 <i class="fas fa-home"></i>
                     Home
                 </a>
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?halaman=customers">
+                <a class="nav-link active" href="index.php?halaman=customers">
                 <i class="fas fa-users"></i>
                     Customers
                 </a>

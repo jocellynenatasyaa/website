@@ -177,7 +177,7 @@
                 <?php
                 include 'koneksi.php';
                 $data=array();
-                $ambil = $conn->query("SELECT * FROM produk WHERE kategori='womentop'");
+                $ambil = $conn->query("SELECT * FROM produk WHERE kategori='Woman Top'");
                     while ($perproduk = $ambil->fetch_assoc()){
                 ?>
                 <div class="col-md-4">

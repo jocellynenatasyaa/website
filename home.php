@@ -123,10 +123,11 @@
                 <a href="https://ski.sch.id/new/smk-kristen-immanuel/">
                     <h4> SMK KRISTEN IMMANUEL PONTIANAK </h4>
                 </a>
-                <p>Jl. Letjen Sutoyo</p>
-                <p>Telp: 0561 – 737921</p>
-                <p>HP: 085246458087</p>
-                <p>Pontianak 78121</p>
+                <h5>Created By :</h5>
+                <p>Erick<br>
+                Jocellyne Natasya<br>
+                Lilian Liwanto<br>
+                Stevanny Anjelika</p>
             </div>
             <img src="images/smk.png" alt="smk" class="ml-3 mt-5" style="width:100px;">
         </div>

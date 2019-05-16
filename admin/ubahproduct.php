@@ -65,6 +65,23 @@
         <input type="number" class="form-control" name="berat" value="<?php echo $pecah['berat_produk'];?>">
     </div>
     <div class="form-group">
+        <label>Stock</label>
+        <input type="number" class="form-control" name="stok" min="1" value="<?php echo $pecah['berat_produk'];?>">
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        <?php
+            
+            $query ="SELECT * FROM kategori";
+            $result = mysqli_query($koneksi,$query);
+        ?>
+        <select name="kategori">
+        <?php while($data = mysqli_fetch_assoc($result) ){?>
+            <option value="<?php echo $pecah['kategori'];?>"><?php echo $data['nama'];?></option>
+        <?php } ?>
+        </select>
+    </div>
+    <div class="form-group">
         <label>Description</label>
         <textarea class="form-control" name="deskripsi" rows="10"><?php echo $pecah['deskripsi_produk'];?></textarea>
     </div>
@@ -86,7 +103,7 @@ if (isset($_POST['ubah']))
     $img = $_FILES['foto']['tmp_name'];
     $image = addslashes(file_get_contents($img));
     $koneksi->query("UPDATE produk SET nama_produk='$_POST[nama]', harga_produk='$_POST[harga]', 
-    berat_produk='$_POST[berat]', foto_produk='$image', deskripsi_produk='$_POST[deskripsi]' 
+    berat_produk='$_POST[berat]', stok='$_POST[stok]', deskripsi_produk='$_POST[deskripsi]' 
     WHERE id_produk='$_GET[id]'"); 
     
     echo "<div class='alert alert-info'>Data Updated</div>";
