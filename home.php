@@ -162,36 +162,47 @@
     <section class="konten mt-3">
         <div class="container">
             <div class="row">
-                <?php
-                 include 'koneksi.php';
-                    $ambil = $conn->query("SELECT * FROM produk");
-                    while ($perproduk = $ambil->fetch_assoc()){
-                ?>
-                <div class="col-md-3">
-                    <div class="card">
-                        <?php
-                    echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
-                ?>
-                        <div class="card-body">
-                            <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
-                            <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
-                            <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
-                            <br>
-                            <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Buy</a>
-                            <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
-                                class="btn btn-default">Detail</a>
+                <div class="col-md-10">
+                    <div class="row">
+                    <?php
+                        include 'koneksi.php';
+                            $ambil = $conn->query("SELECT * FROM produk");
+                            while ($perproduk = $ambil->fetch_assoc()){
+                        ?>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <?php
+                            echo '<img class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $perproduk['foto_produk'] ).'"/>';
+                        ?>
+                                <div class="card-body">
+                                    <h3 class="card-title"><?php echo $perproduk['nama_produk'];?></h3>
+                                    <p class="card-text"><?php echo $perproduk['deskripsi_produk'];?></p>
+                                    <h5 class="card-subtitle">Rp. <?php echo number_format($perproduk['harga_produk']);?></h5>
+                                    <br>
+                                    <a href="beli.php?id=<?php echo $perproduk['id_produk'];?>" class="btn btn-primary">Buy</a>
+                                    <a href="description.php?id=<?php echo $perproduk['id_produk'];?>"
+                                        class="btn btn-default">Detail</a>
+                                </div>
+                            </div>
                         </div>
+                        <?php 
+                            } 
+                        ?>  
                     </div>
                 </div>
-                <?php 
-                    } 
-                ?>
+                <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><i class="fas fa-store"></i></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">You don't have a shop</h6>
+                        <button id="openStoreButton" class="btn btn-success">Open Store</button>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
      <!-- footer -->
-
      <footer class="section bg-footer mt-5">
         <div class="container">
             <div class="row">
@@ -252,5 +263,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
+<script src="js/script.js"></script>
 
 </html>

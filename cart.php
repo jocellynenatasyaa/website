@@ -217,10 +217,10 @@
             $nomor=1;
             $totalbelanja=0;
             foreach($_SESSION['keranjang'] as $id_produk => $jumlah):
-            $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-            $pecah = $ambil->fetch_assoc();
-            $subharga = $pecah['harga_produk']*$jumlah;
-            
+                $ambil = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+                $pecah = $ambil->fetch_assoc();
+                $subharga = $pecah['harga_produk']*$jumlah;
+                
             ?>
                 
                 <div class="row">
