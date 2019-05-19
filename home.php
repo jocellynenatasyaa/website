@@ -193,9 +193,37 @@
                 <div class="col-md-2">
                 <div class="card">
                     <div class="card-body text-center">
+
+                    <?php
+                        $username = $_SESSION['username'];
+                        $search = "select * from store  where username = '$username'";
+                        $querySearch = mysqli_query($conn,$search);
+                        $row = mysqli_num_rows($querySearch);
+                        // echo $search;
+                        // echo $row;
+                        if($row < 1){
+                    ?>
                         <h5 class="card-title"><i class="fas fa-store"></i></h5>
                         <h6 class="card-subtitle mb-2 text-muted">You don't have a shop</h6>
                         <button id="openStoreButton" class="btn btn-success">Open Store</button>
+                    <?php
+                        }else{
+                            $re = mysqli_fetch_array($querySearch);
+                            $store_name = $re['store_name'];
+                            $city = $re['city'];
+                            $image = $re['image'];
+                            $username = $re['username'];
+                    ?>
+                        <?php 
+                                 echo '<img style="max-width:100px" src="data:image/jpeg;base64,'.base64_encode( $image ).'"/>';
+                            ?>
+                        <h5 class="card-title"><?php echo $store_name ?></i></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $city ?></h6>
+
+                    <?php
+                        }
+                    ?>
+
                     </div>
                     </div>
                 </div>
