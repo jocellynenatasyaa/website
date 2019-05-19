@@ -93,9 +93,18 @@
                     <th colspan="5">Subtotal</th>
                     <th>Rp. <?php echo number_format($detail['total_pembelian'])?></th>
                 </tfoot>
+                
                 <tfoot>
                         <th colspan="5">Total</th>
                         <th>Rp. <?php echo number_format($totalbelanja)?></th>
+                </tfoot>
+                <tfoot>
+                    <th colspan="5">Discount</th>
+                    <th>Rp. <?php 
+                        $total_pembelian = $detail['total_pembelian'];
+                        $discount = $totalbelanja - $total_pembelian;
+
+                    echo number_format($discount)?></th>
                 </tfoot>
             </table>
             <?php

@@ -88,6 +88,7 @@ include 'navbar.php';
           </select>
         </div>
       </div>
+      
       <div class="form-group">
         <label>Complete Address</label>
         <textarea class="form-control" name="alamat"
@@ -96,23 +97,57 @@ include 'navbar.php';
         <textarea class="form-control" name="alamat2"
           placeholder="Enter the full address and postal code"></textarea>  
       </div>
-      <button class="btn btn-primary" name="checkout">Checkout</button>
+      <div class="form-group">
+      <div>
+        <div class="row">
+            <div class="col-3">
+                <input type="text" class="form-control" placeholder="coupon code" name="kupon">
+            </div>
+            <button class="btn btn-info col-2">
+              Use Coupon
+            </button>
+        </div>
+      </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" name="checkout">Checkout</button>                     
+      </div>
+      
     </form>
+
+    
     <?php
     if(isset($_POST['checkout']))
     {
         $id_pelanggan = $_SESSION['tbuser']['username'];
         $id_ongkir = $_POST['id_ongkir'];
+
         $tanggal_pembelian = date("Y-m-d");
         $alamat = $_POST['alamat'];
         $alamat2 = $_POST['alamat2'];
+
+        $coupon = $_POST['kupon'];
+
+        $search_coupon = "select * from coupon where coupun = '$coupon'";
+        echo $search_coupon;
+        $querycoupon = mysqli_query($conn,$search_coupon);
+        $row = mysqli_num_rows($querycoupon);
+        if($row > 0){
+          $result2 = mysqli_fetch_array($querycoupon);
+          $diskon = $result2['diskon'];
+        }
+        else{
+          $diskon = 0;
+
+        }
+      
 
         $ambil = $conn->query("SELECT * FROM ongkir WHERE id_ongkir='$id_ongkir'");
         $arrayongkir = $ambil->fetch_assoc();
         $nama_kota = $arrayongkir['nama_kota'];
         $tarif = $arrayongkir['tarif'];
 
-        $total_pembelian = $totalbelanja + $tarif;
+        $total_pembelian = $totalbelanja + $tarif - $diskon ;
 
         $conn->query("INSERT INTO pembelian(id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian,nama_kota,tarif,alamat,alamat2)
         VALUES('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_kota','$tarif','$alamat','$alamat2')");

@@ -269,16 +269,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="text" class="form-control" placeholder="coupon code" name="kupon">
-                        </div>
-                        <div class="col-6">
-                            <a href="coupon.php"><input type="submit" class="btn btn-default" value="Use coupon"></a>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="pull-right" style="margin: 10px">
                     <a href="checkout.php" class="btn btn-success pull-right">Checkout</a>
                     <div class="pull-right" style="margin: 5px">
