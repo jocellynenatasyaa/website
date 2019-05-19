@@ -6,7 +6,7 @@
 
     $data=array();
     $ambil = $conn->query("SELECT * FROM produk WHERE nama_produk LIKE '%$search%'
-        OR deskripsi_produk LIKE '%$search%'");
+        OR deskripsi_produk LIKE '%$search%' OR hastag LIKE '%$search%'");
     while($pecah = $ambil->fetch_assoc())
     {
         $data[]=$pecah;

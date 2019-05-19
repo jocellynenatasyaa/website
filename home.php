@@ -217,12 +217,12 @@
                     </div>
                 <div class="col-lg-3">
                     <div class="">
-                        <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                        <h6 class="footer-heading text-uppercase text-white">Created By:</h6>
                         <ul class="list-unstyled footer-link mt-4">
-                            <li><a href="">Sign Up </a></li>
-                            <li><a href="">Login</a></li>
-                            <li><a href="">Terms of Services</a></li>
-                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Erick </a></li>
+                            <li><a href="">Jocellyne Natasya</a></li>
+                            <li><a href="">Lilian Liwanto</a></li>
+                            <li><a href="">Stevanny Anjelika</a></li>
                         </ul>
                     </div>
                 </div>
@@ -232,6 +232,7 @@
                         <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
                         <p class="contact-info">0812 5015 0667</p>
                         <p class="contact-info">aphrodite@gmail.com</p>
+                        
                         <div class="mt-5">
                             <ul class="list-inline">
                                 <li class="list-inline-item"><a href="#"><i class="fab facebook footer-social-icon fa-facebook-f"></i></i></a></li>

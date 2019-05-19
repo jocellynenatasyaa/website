@@ -177,7 +177,7 @@
                 <?php
                 include 'koneksi.php';
                 $data=array();
-                $ambil = $conn->query("SELECT * FROM produk WHERE kategori LIKE'%Woman%'");
+                $ambil = $conn->query("SELECT * FROM produk WHERE hastag LIKE'%cute%'");
                     while ($perproduk = $ambil->fetch_assoc()){
                 ?>
                 <div class="col-md-4">

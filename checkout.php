@@ -92,6 +92,9 @@ include 'navbar.php';
         <label>Complete Address</label>
         <textarea class="form-control" name="alamat"
           placeholder="Enter the full address and postal code"></textarea>
+        <label>Alternative Address </label>
+        <textarea class="form-control" name="alamat2"
+          placeholder="Enter the full address and postal code"></textarea>  
       </div>
       <button class="btn btn-primary" name="checkout">Checkout</button>
     </form>
@@ -102,6 +105,7 @@ include 'navbar.php';
         $id_ongkir = $_POST['id_ongkir'];
         $tanggal_pembelian = date("Y-m-d");
         $alamat = $_POST['alamat'];
+        $alamat2 = $_POST['alamat2'];
 
         $ambil = $conn->query("SELECT * FROM ongkir WHERE id_ongkir='$id_ongkir'");
         $arrayongkir = $ambil->fetch_assoc();
@@ -110,8 +114,8 @@ include 'navbar.php';
 
         $total_pembelian = $totalbelanja + $tarif;
 
-        $conn->query("INSERT INTO pembelian(id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian,nama_kota,tarif,alamat)
-        VALUES('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_kota','$tarif','$alamat')");
+        $conn->query("INSERT INTO pembelian(id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian,nama_kota,tarif,alamat,alamat2)
+        VALUES('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_kota','$tarif','$alamat','$alamat2')");
 
         $id_pembelian_barusan = $conn->insert_id;
     

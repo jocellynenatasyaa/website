@@ -144,7 +144,7 @@
     <div class="col-9">
       <div class="row">
         <div class="col-10">
-          <button type="button" class="btn btn-outline-primary">#cute</button>
+          <button type="button" class="btn btn-outline-primary"><a href="hastagcute.php">#cute</a></button>
           <button type="button" class="btn btn-outline-secondary">#cool</button>
           <button type="button" class="btn btn-outline-success">#elegan</button>
           <button type="button" class="btn btn-outline-info">#wedding</button>
@@ -177,7 +177,7 @@
                 <?php
                 include 'koneksi.php';
                 $data=array();
-                $ambil = $conn->query("SELECT * FROM produk WHERE kategori LIKE'%Woman%'");
+                $ambil = $conn->query("SELECT * FROM produk WHERE kategori LIKE'%Woman Top%'");
                     while ($perproduk = $ambil->fetch_assoc()){
                 ?>
                 <div class="col-md-4">

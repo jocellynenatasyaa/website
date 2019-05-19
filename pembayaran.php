@@ -24,22 +24,28 @@
     <!-- form card cc payment -->
     <div class="card card-outline-secondary">
         <div class="card-body">
-            <h3 class="text-center">Credit Card Payment</h3>
+            <h3 class="text-center">Confirm Payment</h3>
             <hr>
-            <div class="alert alert-info">Must Pay <strong>Rp.
+            <div class="alert alert-info">Total Payment <strong>Rp.
                     <?php echo number_format($detpem['total_pembelian'])?></strong></div>
 
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="cc_name">Card Holder's Name</label>
+                    <label for="cc_name">Name as in Bank Account</label>
                     <input type="text" name="nama" class="form-control" id="cc_name" pattern="\w+ \w+.*"
                         title="First and last name" required="required">
                 </div>
                 <div class="form-group">
-                    <label>Card</label>
-                    <input type="text" name="bank" class="form-control" autocomplete="off" maxlength="20" pattern="\w+"
-                        title="Bank" required="required">
-
+                        <?php
+                            $query ="SELECT * FROM bank";
+                            $result = mysqli_query($conn,$query);
+                        ?>
+                        <select name="bank">
+                        <option>Select Bank</option>
+                        <?php while($data = mysqli_fetch_assoc($result) ){?>
+                            <option value="<?php echo $data['nama_bank'];?>"><?php echo $data['nama_bank'];?></option>
+                        <?php } ?>
+                        </select>
                 </div>
                 <div class="row">
                     <label class="col-md-12">Amount</label>
@@ -52,7 +58,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">Reception</label>
+                    <label for="exampleFormControlFile1">Upload Receipt</label>
                     <input type="file" name="bukti" class="form-control-file" id="exampleFormControlFile1">
                 </div>
                 <hr>
